@@ -1,14 +1,14 @@
-# Mewgenics Breeding Analyzer
+# Mewgenics Breeding Tool
 
-Desktop app for analyzing cat genetics and breeding pairs from *Mewgenics* save files. Extracts cat data directly from `.sav` SQLite databases, reconstructs family trees from the pedigree table, and scores all viable breeding pairs using the game's real stat inheritance formula.
+Desktop app for analyzing cat genetics and breeding pairs from *Mewgenics* save files. Extracts cat data directly from `.sav` file, reconstructs family trees from the pedigree table, and scores all viable breeding pairs using the game's current stats.
 
 ## How it works
 
-1. **Reads** the Mewgenics save file (`steamcampaign01.sav`) in read-only mode — never modifies your game data.
-2. **Decompresses** cat BLOBs using a custom LZ4 block decompressor (pure Python, no native dependencies).
-3. **Parses** GameMaker buffer serialization: u16/u32/u64 structs, UTF-16LE strings, T-array mutations.
-4. **Rebuilds genealogy** from the `pedigree` table — identifies parents, children, and family relationships.
-5. **Scores breeding pairs** with the game's inheritance formula (see below).
+1. **Reads** the Mewgenics save file (`steamcampaign01.sav`) in read-only mode and never modifies your game data.
+2. **Decompresses** decompresses the .sav file.
+3. **Parses** credits to TeaFull6669 (used his parser after failing to extract data from .sav file).
+4. **Rebuilds genealogy** from the `pedigree` table, identifies parents, children and consanguinity.
+5. **Scores breeding pairs** with the game's inheritance formula (https://mewgenics.wiki.gg).
 6. **Detects consanguinity** — flags incestuous pairs with severity ratings and score penalties.
 
 ## Breeding formula
@@ -56,7 +56,7 @@ mewgenics_breeding/
   src/
     extract_data.py    # Core engine: SQLite read, LZ4 decompress, binary parse, breeding logic
     app.py             # PyWebView desktop entry point
-    app.html           # Complete UI (dark theme, 3 tabs, no framework)
+    app.html           # Complete UI
     img/icons/         # SVG stat icons
   dist/
     MewgenicsBreeding.exe   # Standalone .exe (PyInstaller onefile, ~15MB)
@@ -72,7 +72,7 @@ python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 
 # Install dependencies
-pip install pywebview pyinstaller
+pip install pywebview pyinstaller (or pip install -r requirements.txt)
 
 # Build standalone .exe
 python -m PyInstaller --onefile --windowed --name "MewgenicsBreeding" `
@@ -104,7 +104,7 @@ python src\extract_data.py
 ## Tech stack
 
 - **Python 3.13** — core logic
-- **PyWebView** — native desktop window via WebView2 (no browser, no HTTP server, no firewall prompts)
+- **PyWebView** — native desktop window via WebView2
 - **PyInstaller** — onefile .exe packaging
 - **SQLite3** — save file access
 - **Vanilla HTML/CSS/JS** — dark-themed UI, no frameworks
