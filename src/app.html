@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mewgenics - Cat Breeding Database</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0d1117;
+  --bg2: #161b22;
+  --bg3: #21262d;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text2: #8b949e;
+  --accent: #58a6ff;
+  --accent2: #3fb950;
+  --female: #f778ba;
+  --male: #58a6ff;
+  --gold: #d2991d;
+  --rare: #a371f7;
+  --warn: #f85149;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* Header */
+.header {
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+}
+.header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f778ba, #58a6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.header .badge {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: var(--text2);
+}
+.header .badge strong { color: var(--text); }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  background: var(--bg2);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+.tab-btn {
+  padding: 12px 24px;
+  background: none;
+  border: none;
+  color: var(--text2);
+  cursor: pointer;
+  font-size: 0.95rem;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  font-family: inherit;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* Content */
+.content { padding: 20px 24px; }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* Stats bar */
+.stats-bar {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+.stat-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 20px;
+  min-width: 120px;
+}
+.stat-card .label { font-size: 0.75rem; color: var(--text2); text-transform: uppercase; letter-spacing: 0.5px; }
+.stat-card .value { font-size: 1.5rem; font-weight: 700; }
+
+/* Filters */
+.filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.filters input, .filters select {
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+.filters input:focus, .filters select:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.filters input { min-width: 250px; }
+.filters select { min-width: 150px; }
+
+/* Table */
+.table-wrapper {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+th {
+  background: var(--bg3);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text2);
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+th:hover { color: var(--text); }
+th .sort-arrow { margin-left: 4px; }
+td { padding: 10px 14px; border-top: 1px solid var(--border); }
+tr:hover td { background: rgba(88,166,255,0.04); }
+
+.name-cell { font-weight: 600; }
+.gender-female { color: var(--female); }
+.gender-male { color: var(--male); }
+
+.breed-tag {
+  display: inline-block;
+  background: var(--bg3);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+.class-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.class-Colorless { background: #30363d; color: #8b949e; }
+.class-Fighter { background: #3d1e1e; color: #f85149; }
+.class-Hunter { background: #1e3d1e; color: #3fb950; }
+.class-Mage { background: #1e1e3d; color: #58a6ff; }
+.class-Medic { background: #3d3d1e; color: #d2991d; }
+.class-Necromancer { background: #2e1e3d; color: #a371f7; }
+.class-Tank { background: #3d2e1e; color: #f0883e; }
+.class-Thief { background: #1e3d3d; color: #39d353; }
+
+.status-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+.status-tag:hover { filter: brightness(1.3); }
+.status-Alive { background: #1e3d1e; color: #3fb950; }
+.status-Dead { background: #3d1e1e; color: #f85149; }
+.status-Donated { background: #1e1e3d; color: #58a6ff; }
+.status-Retired { background: #3d3d1e; color: #d2991d; }
+/* Legacy Portuguese classes */
+.status-Vivo { background: #1e3d1e; color: #3fb950; }
+.status-Morto { background: #3d1e1e; color: #f85149; }
+.status-Doado { background: #1e1e3d; color: #58a6ff; }
+.status-Retirado { background: #3d3d1e; color: #d2991d; }
+.status-Normal { background: #1e3d1e; color: #3fb950; }
+
+/* Substatus badges */
+.sub-badge {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 0.65rem;
+  font-weight: 600;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.sub-badge.retired { background: #3d3d1e; color: #d2991d; }
+.sub-badge.donated { background: #1e1e3d; color: #58a6ff; }
+.sub-badge.old { background: #3d2e3d; color: #d299d1; }
+
+.ability-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-width: 300px;
+}
+.ability-tag {
+  background: rgba(163,113,247,0.15);
+  color: var(--rare);
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.item-tag {
+  background: rgba(210,153,29,0.15);
+  color: var(--gold);
+  padding: 1px 8px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Breeding cards */
+.breeding-grid {
+  display: block;
+}
+.breeding-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 12px;
+}
+.pair-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  transition: border-color 0.2s;
+}
+.pair-card:hover { border-color: var(--accent); }
+.pair-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.pair-score {
+  background: var(--accent);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.pair-parents {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.pair-parents .male { color: var(--male); }
+.pair-parents .female { color: var(--female); }
+.pair-parents .cross { color: var(--text2); }
+.pair-reasons {
+  font-size: 0.8rem;
+  color: var(--text2);
+  list-style: none;
+}
+.pair-reasons li::before { content: "✦ "; color: var(--accent2); }
+
+/* Modal */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 200;
+  justify-content: center;
+  align-items: center;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+.modal h2 { margin-bottom: 16px; color: var(--accent); }
+.modal .detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+.modal .detail-label { color: var(--text2); }
+.modal .close-btn {
+  float: right;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 6px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.modal .close-btn:hover { background: var(--border); }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header { flex-wrap: wrap; }
+  .filters { flex-direction: column; }
+  .filters input, .filters select { width: 100%; }
+  .stats-bar { gap: 8px; }
+  .stat-card { min-width: 80px; padding: 8px 12px; }
+  .stat-card .value { font-size: 1.2rem; }
+  .breeding-grid { grid-template-columns: 1fr; }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px;
+  color: var(--text2);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🐱 Mewgenics Breeding DB</h1>
+  <span class="badge" id="catCount">Loading...</span>
+  <button onclick="refreshData()" style="margin-left:auto;background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:6px 14px;border-radius:6px;cursor:pointer;font-family:inherit;font-size:0.85rem;" title="Refresh data">Refresh</button>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="cats">📋 All Cats</button>
+  <button class="tab-btn" data-tab="breeding">💕 Breeding</button>
+  <button class="tab-btn" data-tab="stats">📊 Stats</button>
+</div>
+
+<div class="content">
+  <!-- Cats Tab -->
+  <div class="tab-panel active" id="panel-cats">
+    <div class="stats-bar" id="statsBar"></div>
+    <div class="filters">
+      <input type="text" id="searchInput" placeholder="🔍 Search by name, ability, class...">
+      <select id="genderFilter">
+        <option value="">All genders</option>
+        <option value="Female">♀ Female</option>
+        <option value="Male">♂ Male</option>
+      </select>
+      <select id="classFilter">
+        <option value="">All classes</option>
+      </select>
+      <select id="breedFilter">
+        <option value="">All breeds</option>
+      </select>
+      <select id="statusFilter">
+        <option value="">All statuses</option>
+        <option value="Alive">🟢 Alive</option>
+        <option value="Dead">💀 Dead</option>
+        <option value="Donated">📤 Donated</option>
+        <option value="Retired">🔒 Retired</option>
+      </select>
+      <label style="display:flex;align-items:center;gap:6px;cursor:pointer;white-space:nowrap;padding:0 8px;color:var(--text2);font-size:0.85rem;user-select:none;">
+        <input type="checkbox" id="activeOnlyFilter" checked onchange="renderAll()">
+        🏠 Active only
+      </label>
+    </div>
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th data-sort="id">#</th>
+            <th data-sort="name">Name</th>
+            <th data-sort="gender">Gender</th>
+            <th data-sort="location">Location</th>
+            <th data-sort="breed_code">Breed</th>
+            <th data-sort="cat_class">Class</th>
+            <th data-sort="status">Status</th>
+            <th>Abilities</th>
+          </tr>
+        </thead>
+        <tbody id="catsTableBody"></tbody>
+      </table>
+    </div>
+    <div id="emptyState" class="empty-state" style="display:none">
+      <div class="icon">😿</div>
+      <p>No cats found matching your filters.</p>
+    </div>
+  </div>
+
+  <!-- Breeding Tab -->
+  <div class="tab-panel" id="panel-breeding">
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="label">Compatible Pairs</div>
+        <div class="value" id="pairCount">-</div>
+      </div>
+    </div>
+    <p style="margin:8px 0 16px;color:var(--text2);font-size:0.85rem;">
+      Ranked by <strong>stat-7 coverage</strong> first (how many unique stats at 7 the pair covers),
+      then by overall compatibility score. Click <strong>⛔ Block</strong> to remove parent-child or unwanted pairs.
+      Blocked pairs are saved in your browser and persist between sessions.
+    </p>
+    <div id="catSelector" style="margin-bottom:12px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+      <span style="font-size:0.8rem;color:var(--text2);font-weight:600;margin-right:4px;">Filter by cat:</span>
+      <button onclick="clearCatFilter()" id="clearCatBtn" style="display:none;background:var(--bg3);border:1px solid var(--border);color:var(--text2);padding:2px 8px;border-radius:4px;cursor:pointer;font-size:0.75rem;font-family:inherit;">✕ Clear</button>
+    </div>
+    <div class="breeding-grid" id="breedingGrid"></div>
+  </div>
+
+  <!-- Stats Tab -->
+  <div class="tab-panel" id="panel-stats">
+    <div class="stats-bar" id="statsDetailBar"></div>
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      <div>
+        <h3 style="margin-bottom:12px;color:var(--text2)">Distribuição de Classes</h3>
+        <div id="classChart" style="display:flex;flex-direction:column;gap:6px;"></div>
+      </div>
+      <div>
+        <h3 style="margin-bottom:12px;color:var(--text2)">Top Raças</h3>
+        <div id="breedChart" style="display:flex;flex-direction:column;gap:6px;"></div>
+      </div>
+    </div>
+    <div style="margin-top:20px;">
+      <h3 style="margin-bottom:12px;color:var(--text2)">Rare Abilities (≤3 cats)</h3>
+      <div id="rareAbilities" style="display:flex;flex-wrap:wrap;gap:8px;"></div>
+    </div>
+    <div style="margin-top:20px;">
+      <h3 style="margin-bottom:12px;color:var(--text2)">🏆 Stat-7 Leaderboard</h3>
+      <p style="font-size:0.85rem;color:var(--text2);margin-bottom:12px;">Cats with the most stats at 7 (max 7/7 for a "perfect" 49 total).</p>
+      <div id="stat7Board"></div>
+    </div>
+    <div style="margin-top:20px;">
+      <h3 style="margin-bottom:12px;color:var(--text2)">⛔ Blocked Pairs</h3>
+      <p style="font-size:0.85rem;color:var(--text2);margin-bottom:12px;">Pairs you've marked as inbreeding or unwanted. Click to unblock.</p>
+      <div id="blockedPairsPanel"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Cat Detail Modal -->
+<div class="modal-overlay" id="catModal">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">✕ Close</button>
+    <h2 id="modalName"></h2>
+    <div id="modalDetails"></div>
+  </div>
+</div>
+
+<script>
+// Safe localStorage access (PyWebView may block it)
+function safeGetLocalStorage(key, fallback) {
+  try { var v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; } catch(e) { return fallback; }
+}
+function safeSetLocalStorage(key, value) {
+  try { localStorage.setItem(key, JSON.stringify(value)); } catch(e) {}
+}
+
+// Global state
+let catsData = [];
+let insightsData = null;
+let currentSort = { field: 'id', asc: true };
+let selectedCats = [];
+
+// Stat icons as base64 data URIs (white fill for dark theme)
+const STAT_ICONS = {
+  STR: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iNjQuM3B4IiB3aWR0aD0iNjMuMHB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIC0wLjE1LCA2NC43NSkiPg0KICAgIDx1c2UgZmZkZWM6Y2hhcmFjdGVySWQ9IjI3MDMiIGhlaWdodD0iMzIuOCIgdHJhbnNmb3JtPSJtYXRyaXgoMi4wMTI2LCAwLjAsIDAuMCwgMS45NjAxLCAwLjQsIC02My40KSIgd2lkdGg9IjMxLjMiIHhsaW5rOmhyZWY9IiNzcHJpdGUwIi8+DQogIDwvZz4NCiAgPGRlZnM+DQogICAgPGcgaWQ9InNwcml0ZTAiPg0KICAgICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcwMiIgaGVpZ2h0PSIzMi44IiB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIDAuMCwgMC4wKSIgd2lkdGg9IjMxLjMiIHhsaW5rOmhyZWY9IiNzaGFwZTAiLz4NCiAgICA8L2c+DQogICAgPGcgaWQ9InNoYXBlMCI+DQogICAgICA8cGF0aCBkPSJNMi44NSAxOS41IFE0LjU1IDE4LjIgNi44IDE3LjQ1IDEyLjggMTUuNjUgMTguMTUgMTguMiAxOC40IDE4LjI1IDE5LjggMTkuNiAyMS4xNSAyMC45IDIxLjcgMjQuNTUgMjIuNzUgMjMuMCAyMS44NSAyMC4xNSAyMS40NSAxOC44IDIwLjIgMTcuOCBMMjEuMyAxMS4yNSBRMTcuMCAxMC4zNSAxNi42IDYuOSAxNS45IDcuOSAxNS45NSA4Ljg1IDE2LjAgMTAuMSAxNi44NSAxMC44IDE3LjcgMTEuNTUgMTguOCAxMS44IEwxOC4zIDEyLjMgMTcuNCAxMi43IDE1LjQ1IDEyLjkgUTE0LjI1IDEyLjg1IDEzLjI1IDEyLjI1IDExLjYgMTEuMiAxMS4yNSA5LjYgTDExLjAgNy42NSAxMS4yNSA1LjQgUTExLjY1IDIuOTUgMTUuNDUgMS4wIDE4Ljc1IC0wLjcgMjEuMTUgLTAuNyBMMjEuODUgLTAuNiBRMjQuNDUgLTAuMzUgMjUuNSAwLjYgMjYuNSAxLjUgMjcuMzUgMy41IDI4LjIgNS4zNSAyOC4xIDcuMzUgTDI4LjQgMTAuMSAyOS4wIDEyLjg1IFEyOS45IDE2LjQgMzAuOCAyMS41IDMxLjY1IDI2LjY1IDMwLjcgMjguNDUgMjkuNzUgMzAuMiAyNy4wIDMxLjA1IDI0LjIgMzEuODUgMjEuNCAzMC42NSBMMjAuNSAzMC45NSBRMTcuMTUgMzIuMDUgMTEuNSAzMi4xIEwzLjggMzEuNSBRLTAuOCAyOS4wIDAuMDUgMjQuNzUgMC4yNSAyMi4xIDIuODUgMTkuNSIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9Im5vbmUiLz4NCiAgICA8L2c+DQogIDwvZGVmcz4NCjwvc3ZnPg0K',
+  DEX: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iNTkuMXB4IiB3aWR0aD0iNzIuOTVweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCA1LjcsIDYxLjA1KSI+DQogICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcxMiIgaGVpZ2h0PSIyNS43NSIgdHJhbnNmb3JtPSJtYXRyaXgoMi4yOTQ4LCAwLjAsIDAuMCwgMi4yOTQ4LCAtNS4yNSwgLTYyLjApIiB3aWR0aD0iMzEuOCIgeGxpbms6aHJlZj0iI3Nwcml0ZTAiLz4NCiAgPC9nPg0KICA8ZGVmcz4NCiAgICA8ZyBpZD0ic3ByaXRlMCI+DQogICAgICA8dXNlIGZmZGVjOmNoYXJhY3RlcklkPSIyNzExIiBoZWlnaHQ9IjI1Ljc1IiB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIDAuMCwgMC4wKSIgd2lkdGg9IjMxLjgiIHhsaW5rOmhyZWY9IiNzaGFwZTAiLz4NCiAgICA8L2c+DQogICAgPGcgaWQ9InNoYXBlMCI+DQogICAgICA8cGF0aCBkPSJNMjIuNCA3Ljk1IFEyNC4yNSA3LjA1IDI1LjIgNi43IEwyMy45IDQuNTUgUTIzLjcgMy41IDI0LjMgMy4yNSBMMjYuOCAzLjUgMzAuMyA0LjggUTMxLjE1IDUuMiAzMS40NSA1LjggMzEuNyA2LjM1IDMxLjUgNy4xIDMxLjIgOC43NSAzMC4yNSAxMC42NSAyOS4zNSAxMi40NSAyOC42NSAxMi44NSAyOC4wNSAxMy4wNSAyNy40IDEyLjIgTDI2LjggMTAuMiAyMy4xIDExLjc1IFExMC40NSAxNy4xNSA3LjIgMTguMyBMNi45IDE5LjMgNS43NSAyMS4yIFE0LjkgMjIuMjUgMy45IDIyLjY1IDIuOSAyMy4wNSAyLjUgMjEuNTUgMi4yNSAyMC44IDIuMjUgMTkuOCBMMi4zNSAxOC43IDEuNDUgMTguMTUgMC4wNSAxNi4zIDAuMCAxNi4zIFEtMC42IDE1LjM1IDAuNzUgMTQuNzUgTDMuMCAxNC42IFE0LjYgMTQuNjUgNi4wNSAxNS4zNSBMMjIuNCA3Ljk1IiBmaWxsPSIjZmZmZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0ibm9uZSIvPg0KICAgICAgPHBhdGggZD0iTTQuMSA0LjEgUTQuNiAyLjY1IDUuNjUgMi4xNSA3LjA1IDEuMiA4LjM1IDAuOSBMMTIuMjUgMC40NSBRMTUuNSAwLjQgMTguNSAyLjEgMjIuNSA0LjA1IDIzLjk1IDcuMyBMMjQuNzUgOS4wIFEyNS4yIDEwLjggMjQuOCAxMi43IDI0LjcgMTUuNTUgMjIuNzUgMTguODUgMjAuOTUgMjEuOTUgMTguMDUgMjMuOSAxNi4zIDI0Ljk1IDE0LjQgMjUuNyBMMTEuMjUgMjYuMTUgUTkuOTUgMjYuMCA4LjkgMjUuMCBMOC41IDI0LjI1IFE4LjMgMjMuNCA4LjkgMjIuNiBMOS40IDIyLjAgOS40NSAyMi4wNSA1LjcgNi40NSA1LjQ1IDYuMTUgNS40IDYuMTUgNS4xIDYuMSBRNC4yIDUuNjUgNC4wNSA1LjAgTDQuMSA0LjEgTTE4LjYgOC40IFExNy4wIDYuMyAxNC4zIDUuNTUgMTIuNCA0Ljc1IDEwLjUgNC45NSBMOC4xIDUuNCAxMS43IDIxLjM1IFExMi4xIDIxLjUgMTMuOTUgMjAuNzUgMTYuMCAxOS43IDE3LjU1IDE3LjggMTkuMjUgMTUuNjUgMTkuNyAxMy4yNSAyMC4xNSAxMS40IDE5Ljg1IDEwLjc1IDE5LjQgOS4wNSAxOC42IDguNCIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9Im5vbmUiLz4NCiAgICA8L2c+DQogIDwvZGVmcz4NCjwvc3ZnPg0K',
+  CON: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iNjMuM3B4IiB3aWR0aD0iNzguMDVweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCA3LjM1LCA2My4wKSI+DQogICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcxNSIgaGVpZ2h0PSIyNi4wNSIgdHJhbnNmb3JtPSJtYXRyaXgoMi40MzI1LCAwLjAsIDAuMCwgMi40MzI1LCAtNy4zNSwgLTYwLjk1KSIgd2lkdGg9IjMyLjEiIHhsaW5rOmhyZWY9IiNzcHJpdGUwIi8+DQogIDwvZz4NCiAgPGRlZnM+DQogICAgPGcgaWQ9InNwcml0ZTAiPg0KICAgICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcxNCIgaGVpZ2h0PSIyNi4wNSIgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCAwLjAsIDAuMCkiIHdpZHRoPSIzMi4xIiB4bGluazpocmVmPSIjc2hhcGUwIi8+DQogICAgPC9nPg0KICAgIDxnIGlkPSJzaGFwZTAiPg0KICAgICAgPHBhdGggZD0iTTEzLjcgMjIuODUgUTExLjUgMjAuNTUgOC44NSAxOS42IEw0Ljc1IDE4LjAgUTMuMyAxNy4zNSAxLjkgMTUuNjUgMC40NSAxMy45NSAwLjIgMTIuMTUgLTAuMDUgMTAuMyAwLjAgOC45IDAuMDUgNy42NSAwLjQ1IDYuMSBMMC45IDQuNjUgUTEuNyAyLjcgMy42IDEuMSA0LjQ1IDAuMzUgNS43IC0wLjMgTDEwLjM1IC0wLjUgUTEyLjkgMC4yIDE0LjE1IDEuNCBMMTYuMDUgMy42NSBRMTYuNzUgMi43IDE4LjAgMS41IDE5LjIgMC4yNSAyMS44IC0wLjUgTDI2LjQgLTAuMyBRMjcuNjUgMC4zNSAyOC41IDEuMSAzMC40IDIuNyAzMS4yIDQuNjUgTDMxLjY1IDYuMSAzMi4xIDguOSAzMS45IDEyLjE1IFEzMS42NSAxMy45NSAzMC4yIDE1LjY1IDI4LjggMTcuMzUgMjcuMzUgMTguMCBMMjMuMjUgMTkuNiBRMjAuNiAyMC41NSAxOC40IDIyLjg1IEwxNy4xNSAyNC4zIFExNi4wNSAyNi4xNSAxNC45NSAyNC4zIEwxMy43IDIyLjg1IE0xNC42NSAxMy45NSBMMTQuNjUgMTcuMzUgUTE0LjkgMTguMiAxNS41IDE4LjI1IEwxNi4xIDE4LjI1IDE2LjE1IDE4LjI1IDE2LjggMTguMiBRMTcuNCAxOC4xNSAxNy41NSAxNy4zNSBMMTcuNTUgMTMuOTUgMjAuOTUgMTMuOTUgUTIxLjggMTMuNjUgMjEuODUgMTMuMSBMMjEuODUgMTIuNDUgMjEuOCAxMS43NSBRMjEuNzUgMTEuMiAyMC45NSAxMS4wIEwxNy41NSAxMS4wIDE3LjU1IDcuNiBRMTcuNCA2LjggMTYuOCA2Ljc1IEwxNi4xNSA2LjcgMTYuMSA2LjcgMTUuNSA2LjcgUTE0LjkgNi43NSAxNC42NSA3LjYgTDE0LjY1IDExLjAgMTEuMiAxMS4wIFExMC40IDExLjIgMTAuMzUgMTEuNzUgTDEwLjMgMTIuNDUgMTAuMyAxMy4xIFExMC4zNSAxMy42NSAxMS4yIDEzLjk1IEwxNC42NSAxMy45NSIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9Im5vbmUiLz4NCiAgICA8L2c+DQogIDwvZGVmcz4NCjwvc3ZnPg0K',
+  INT: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iODIuMzVweCIgd2lkdGg9Ijc1LjlweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCA0Ljg1LCA4MC43NSkiPg0KICAgIDx1c2UgZmZkZWM6Y2hhcmFjdGVySWQ9IjI3MDkiIGhlaWdodD0iNDQuMCIgdHJhbnNmb3JtPSJtYXRyaXgoMS44NzMsIDAuMCwgMC4wLCAxLjg3MywgMi44LCAtNTcuNDUpIiB3aWR0aD0iNDAuNTUiIHhsaW5rOmhyZWY9IiNzcHJpdGUwIi8+DQogIDwvZz4NCiAgPGRlZnM+DQogICAgPGcgaWQ9InNwcml0ZTAiPg0KICAgICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcwOCIgaGVpZ2h0PSI0NC4wIiB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIDAuMCwgMC4wKSIgd2lkdGg9IjQwLjU1IiB4bGluazpocmVmPSIjc2hhcGUwIi8+DQogICAgPC9nPg0KICAgIDxnIGlkPSJzaGFwZTAiPg0KICAgICAgPHBhdGggZD0iTTAuOCAtNC40NSBMMi4xNSAtMi41IDIuNiAtMS42NSAyLjcgLTEuNDUgMi44IC0xLjE1IDMuODUgMC44IDQuNCAxLjg1IDQuNiAyLjU1IDQuNTUgMy4wIFE0LjQ1IDMuMiA0LjAgMy4yNSBMMi40IDIuNjUgMC41NSAxLjcgLTEuMTUgMC44IC0xLjM1IDAuNyAtMy4xNSAtMC42IFEtNC4yNSAtMS41IC00LjA1IC0yLjk1IEwtMy44IC0zLjY1IC0zLjMgLTQuMzUgUS0yLjY1IC01LjIgLTEuNjUgLTUuNCBMLTAuNDUgLTUuMyBRMC4yNSAtNS4xIDAuOCAtNC40NSBNMTguOSAtMTAuMDUgTDE4Ljc1IC05LjA1IDE4LjU1IC04LjIgMTguNSAtOC4xIDE4LjQ1IC04LjAgMTguMzUgLTcuOCAxNy45IC02LjUgMTcuMzUgLTUuMDUgMTcuMjUgLTQuOCAxNy4wNSAtNC40IDE2LjggLTMuODUgMTYuNzUgLTMuOCAxNi42IC0zLjU1IDE2LjI1IC0zLjM1IDE2LjIgLTMuMzUgMTYuMSAtMy4zNSAxNi4wIC0zLjM1IDE1LjY1IC0zLjU1IDE1LjQ1IC0zLjggMTUuMTUgLTQuNDUgMTUuMCAtNC44IDE0LjkgLTUuMDUgMTQuMzUgLTYuNSAxMy44NSAtNy44IDEzLjggLTguMCAxMy43NSAtOC4xIDEzLjcgLTguMiAxMy41NSAtOC43NSAxMy4zNSAtMTAuMDUgMTMuMzUgLTEwLjEgMTMuMyAtMTAuMzUgUTEzLjMgLTExLjEgMTMuOSAtMTEuNiBMMTQuNDUgLTEyLjAgUTE1LjIgLTEyLjUgMTYuMSAtMTIuNDUgMTcuMDUgLTEyLjUgMTcuOCAtMTIuMCBMMTguMzUgLTExLjYgUTE4LjkgLTExLjEgMTguOSAtMTAuMzUgTDE4LjkgLTEwLjEgMTguOSAtMTAuMDUgTTkuMjUgMjEuMSBRNy4xIDIwLjIgNS41IDE4LjM1IDMuOTUgMTYuNTUgMy4zNSAxNC4zIDIuMDUgOS42NSA0LjQ1IDUuMjUgTDUuNTUgMy41NSBROC4yIDAuMCAxMS44NSAtMS40NSAxMy41NSAtMi4xIDE1Ljc1IC0yLjE1IEwxNi44NSAtMi4xNSBRMTkuMCAtMi4xIDIwLjY1IC0xLjQ1IDI0LjMgMC4wIDI2Ljk1IDMuNTUgTDI4LjA1IDUuMjUgUTMwLjQ1IDkuNjUgMjkuMTUgMTQuMyAyOC41NSAxNi41NSAyNy4wIDE4LjM1IDI1LjQgMjAuMiAyMy4yNSAyMS4xIEwyMi4xNSAyMS41IFEyMi44NSAyNi41NSAyMi43NSAyNy43IDIyLjY1IDI4LjkgMjEuNiAzMC4wNSAyMC41NSAzMS4xNSAxOC40NSAzMS40IEwxNS40IDMxLjUgMTQuMDUgMzEuNCBRMTEuOTUgMzEuMTUgMTAuOSAzMC4wNSA5Ljg1IDI4LjkgOS43NSAyNy43IDkuNjUgMjYuNTUgMTAuMzUgMjEuNSBMOS4yNSAyMS4xIE0zMS41NSAtNC40NSBRMzIuMSAtNS4xIDMyLjggLTUuMyBMMzQuMCAtNS40IFEzNS4wIC01LjIgMzUuNjUgLTQuMzUgTDM2LjE1IC0zLjY1IDM2LjQgLTIuOTUgUTM2LjYgLTEuNSAzNS41IC0wLjYgTDMzLjcgMC43IDMzLjUgMC44IDMxLjggMS43IDI5Ljk1IDIuNjUgMjguMzUgMy4yNSBRMjcuOSAzLjIgMjcuOCAzLjAgTDI3Ljc1IDIuNTUgMjcuOTUgMS44NSAyOC41IDAuOCAyOS41NSAtMS4xNSAyOS42NSAtMS40NSAyOS43NSAtMS42NSAzMC4yIC0yLjUgMzEuNTUgLTQuNDUgTTE0LjM1IDEuNzUgUTEyLjQgMi4xIDEwLjI1IDQuMjUgOC4xIDYuNCA3LjU1IDkuNzUgNy4yNSAxMS42IDcuODUgMTMuMzUgOC40NSAxNS4xNSA5LjggMTYuMjUgMTEuMCAxNy4yIDEzLjQ1IDE3Ljc1IEwxNi4yNSAxOC4xIDE5LjA1IDE3Ljc1IFEyMS41IDE3LjIgMjIuNyAxNi4yNSAyNC4wNSAxNS4xNSAyNC42NSAxMy4zNSAyNS4yNSAxMS42IDI0Ljk1IDkuNzUgMjQuNCA2LjQgMjIuMjUgNC4yNSAyMC4xIDIuMSAxOC4xNSAxLjc1IEwxNi4yIDEuNSAxNC4zNSAxLjc1IiBmaWxsPSIjZmZmZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0ibm9uZSIvPg0KICAgICAgPHBhdGggZD0iTTEzLjU1IDE4Ljc1IFExMy40IDE5LjI1IDEyLjggMTkuMTUgTDExLjk1IDE4Ljc1IFExMS4wNSAxNy45NSAxMC43NSAxNi42IDEwLjQ1IDE1LjQ1IDEwLjU1IDE0LjE1IEwxMC43IDEzLjI1IDExLjQ1IDExLjk1IDEyLjQgMTAuOSBRMTIuOSAxMC42IDEzLjc1IDEwLjQgTDE1LjA1IDEwLjQgUTE1LjggMTAuNTUgMTYuMSAxMS4xNSAxNi43NSAxMC43NSAxNy41IDEwLjYgTDE5LjMgMTAuNzUgUTIwLjIgMTEuMSAyMC43NSAxMS44IDIxLjMgMTIuNDUgMjEuNyAxMy43NSBMMjEuODUgMTQuNjUgMjEuNyAxNS42NSBRMjEuMTUgMTguMiAxOS4zIDE5LjA1IEwxOC4yNSAxOS4zNSAxNy43IDE5LjI1IFExNy42IDE5LjEgMTcuOCAxOC42NSBMMTkuMTUgMTUuOCAxOS40IDE0Ljc1IDE5LjMgMTMuNyAxOS4xIDEyLjk1IFExOC43NSAxMi41IDE4LjAgMTIuNSBMMTcuMzUgMTIuNyBRMTcuMSAxMy4wIDE3LjIgMTMuNTUgTDE3LjM1IDE0LjUgMTYuOCAxNS40IDE1Ljc1IDE1LjY1IFExNS4yIDE1LjYgMTQuODUgMTUuMSAxNC41IDE0LjY1IDE0LjU1IDE0LjA1IEwxNC43IDEzLjM1IDE0LjUgMTIuNyBRMTQuMDUgMTIuMzUgMTMuNDUgMTIuODUgMTIuNCAxMy43NSAxMi41IDE1LjI1IDEyLjUgMTYuNDUgMTMuMiAxNy41NSAxMy43NSAxOC4zNSAxMy41NSAxOC43NSIgZmlsbD0iI2ZmZmZmZiIgZmlsbC1ydWxlPSJldmVub2RkIiBzdHJva2U9Im5vbmUiLz4NCiAgICA8L2c+DQogIDwvZGVmcz4NCjwvc3ZnPg0K',
+  SPD: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iNTUuMHB4IiB3aWR0aD0iODcuOXB4IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPg0KICA8ZyB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIDEzLjE1LCA1NC42NSkiPg0KICAgIDx1c2UgZmZkZWM6Y2hhcmFjdGVySWQ9IjI3MDYiIGhlaWdodD0iMjYuOCIgdHJhbnNmb3JtPSJtYXRyaXgoMi4wNTQyLCAwLjAsIDAuMCwgMi4wNTQyLCAtMTAuOSwgLTUzLjk1KSIgd2lkdGg9IjQyLjgiIHhsaW5rOmhyZWY9IiNzcHJpdGUwIi8+DQogIDwvZz4NCiAgPGRlZnM+DQogICAgPGcgaWQ9InNwcml0ZTAiPg0KICAgICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcwNSIgaGVpZ2h0PSIyNi44IiB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIDAuMCwgMC4wKSIgd2lkdGg9IjQyLjgiIHhsaW5rOmhyZWY9IiNzaGFwZTAiLz4NCiAgICA8L2c+DQogICAgPGcgaWQ9InNoYXBlMCI+DQogICAgICA8cGF0aCBkPSJNMzIuMzUgMTEuMDUgUTM1LjAgMTAuOSAzNy40IDEyLjAgMzkuOCAxMy4wNSA0MC45NSAxNS43IDQyLjA1IDE4LjM1IDQxLjUgMjAuNDUgNDAuOSAyMi41IDQwLjE1IDIzLjQ1IDM5LjM1IDI0LjQ1IDI4LjMgMjUuNiBMMTYuNDUgMjYuMyBRMTUuNiAyNS44IDE1LjE1IDI0Ljc1IEwxMi42IDQuNjUgUTEyLjM1IDEuNCAxOC45NSAwLjMgTDI3LjMgLTAuMDUgUTI5LjA1IDAuNjUgMjguMjUgOS4wNSBMMjguMCAxMS45IFEyOS43NSAxMS4yIDMyLjM1IDExLjA1IE0xMC42NSA0Ljk1IFExMS4xNSA1LjMgMTEuNCA2LjU1IDExLjUgNy44IDkuNDUgOC4xIEwyLjQgOS40NSAwLjk1IDkuNjUgUS0wLjQ1IDkuNzUgLTAuOSA4LjggTC0xLjEgOC4xNSBRLTEuMiA3LjU1IC0wLjg1IDcuMzUgTDAuMTUgNi41NSAzLjU1IDUuNDUgNS44IDQuOSA4Ljk1IDQuNTUgUTEwLjA1IDQuNSAxMC42NSA0Ljk1IE0xMS42IDE1LjEgUTExLjEgMTUuNjUgOS4zIDE2LjI1IEw1LjI1IDE3LjE1IDIuMzUgMTcuNTUgMS4xIDE3LjM1IFEwLjUgMTcuMSAwLjU1IDE1Ljg1IDAuNiAxNC42IDEuODUgMTQuMTUgTDMuMTUgMTMuNiA5LjE1IDEyLjE1IFExMS4wIDExLjc1IDExLjU1IDEzLjE1IDEyLjA1IDE0LjU1IDExLjYgMTUuMSBNMTIuNSAyMy4yNSBRMTIuMTUgMjMuOTUgMTEuMSAyNC40IEw1LjUgMjUuNzUgMS44NSAyNi4xIDAuNiAyNS43NSBRMC4wIDI1LjU1IDAuMCAyNC40NSAwLjAgMjMuMzUgMS4zNSAyMi45NSBMMi44IDIyLjU1IDEwLjEgMjAuOCBRMTIuMSAyMC4yNSAxMi41IDIxLjQ1IDEyLjg1IDIyLjY1IDEyLjUgMjMuMjUiIGZpbGw9IiNmZmZmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSJub25lIi8+DQogICAgPC9nPg0KICA8L2RlZnM+DQo8L3N2Zz4NCg==',
+  CHA: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iNDkuM3B4IiB3aWR0aD0iNzcuMDVweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCA2LjksIDUxLjE1KSI+DQogICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMjcxOCIgaGVpZ2h0PSIyNC41IiB0cmFuc2Zvcm09Im1hdHJpeCgyLjAxMywgMC4wLCAwLjAsIDIuMDEzLCAtNC41LCAtNTQuMCkiIHdpZHRoPSIzOC4zIiB4bGluazpocmVmPSIjc3ByaXRlMCIvPg0KICA8L2c+DQogIDxkZWZzPg0KICAgIDxnIGlkPSJzcHJpdGUwIj4NCiAgICAgIDx1c2UgZmZkZWM6Y2hhcmFjdGVySWQ9IjI3MTciIGhlaWdodD0iMjQuNSIgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCAwLjAsIDAuMCkiIHdpZHRoPSIzOC4zIiB4bGluazpocmVmPSIjc2hhcGUwIi8+DQogICAgPC9nPg0KICAgIDxnIGlkPSJzaGFwZTAiPg0KICAgICAgPHBhdGggZD0iTTEzLjg1IDEuNjUgTDE1LjMgMS40IDE2LjAgMS41IFExNi42NSAxLjU1IDE3Ljk1IDIuMyAxOS4yIDEuNTUgMTkuOSAxLjUgTDIwLjYgMS40IDIyLjA1IDEuNjUgMjMuMzUgMi4wNSBRMjMuOTUgMi4zIDI1LjMgMy4xIEwyNy40NSA0LjM1IDI5LjkgNS4yIDMyLjQ1IDQuNjUgUTM0LjAgNC4wIDM0LjcgNC4yNSBMMzYuMDUgNC45NSBRMzYuNjUgNS4zNSAzNi45IDYuNjUgTDM3LjEgNy44NSAzNy4wIDkuMiBRMzYuNjUgMTAuOTUgMzUuMjUgMTIuNiAzNS4xIDE0LjUgMzMuMiAxNy41NSAzMS4yIDIwLjYgMjguNCAyMi41NSAyNS41NSAyNC41IDIyLjkgMjUuMiBMMTguMDUgMjUuOSAxNy44NSAyNS45IDEzLjAgMjUuMiBRMTAuMyAyNC41IDcuNDUgMjIuNTUgNC42NSAyMC42IDIuNyAxNy41NSAwLjc1IDE0LjUgMC42NSAxMi42IC0wLjc1IDEwLjk1IC0xLjEgOS4yIEwtMS4yIDguMCAtMS4yIDcuODUgLTEuMCA2LjY1IFEtMC43NSA1LjM1IC0wLjE1IDQuOTUgMC40IDQuNDUgMS4yIDQuMjUgMS45IDQuMCAzLjQ1IDQuNjUgTDYuMCA1LjIgOC40IDQuMzUgMTAuNiAzLjEgUTExLjkgMi4zIDEyLjUgMi4wNSBMMTMuODUgMS42NSBNMTQuMSAxMS43NSBRMTEuOSAxMy4wIDkuOSAxMy4yIEw4LjE1IDEzLjIgOS4wIDE0LjIgUTEwLjU1IDE1LjggMTIuNjUgMTYuNiAxNC42NSAxNy4zNSAxOC4xIDE3LjQgMjEuNDUgMTcuMzUgMjMuNCAxNi42IDI1LjQgMTUuOCAyNy4wIDE0LjIgTDI3Ljg1IDEzLjIgMjYuMDUgMTMuMiBRMjQuMDUgMTMuMCAyMS44NSAxMS43NSBMMjEuNiAxMS42NSBRMTkuOCAxMy4wIDE4LjA1IDEzLjA1IEwxNy45IDEzLjA1IFExNi4xIDEzLjAgMTQuMzUgMTEuNjUgTDE0LjEgMTEuNzUiIGZpbGw9IiNmZmZmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc3Ryb2tlPSJub25lIi8+DQogICAgPC9nPg0KICA8L2RlZnM+DQo8L3N2Zz4NCg==',
+  LUCK: 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+DQo8c3ZnIHhtbG5zOmZmZGVjPSJodHRwczovL3d3dy5mcmVlLWRlY29tcGlsZXIuY29tL2ZsYXNoIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgZmZkZWM6b2JqZWN0VHlwZT0iZnJhbWUiIGhlaWdodD0iNjguOXB4IiB3aWR0aD0iNjUuMTVweCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCiAgPGcgdHJhbnNmb3JtPSJtYXRyaXgoMS4wLCAwLjAsIDAuMCwgMS4wLCAwLjUsIDY1LjY1KSI+DQogICAgPHVzZSBmZmRlYzpjaGFyYWN0ZXJJZD0iMzAwNCIgaGVpZ2h0PSIzMy41NSIgdHJhbnNmb3JtPSJtYXRyaXgoMi4wNTQ2LCAwLjAsIDAuMCwgMi4wNTQ2LCAtMi45LCAtNjcuMykiIHdpZHRoPSIzMS43NSIgeGxpbms6aHJlZj0iI3Nwcml0ZTAiLz4NCiAgPC9nPg0KICA8ZGVmcz4NCiAgICA8ZyBpZD0ic3ByaXRlMCI+DQogICAgICA8dXNlIGZmZGVjOmNoYXJhY3RlcklkPSIzMDAzIiBoZWlnaHQ9IjMzLjU1IiB0cmFuc2Zvcm09Im1hdHJpeCgxLjAsIDAuMCwgMC4wLCAxLjAsIDAuMCwgMC4wKSIgd2lkdGg9IjMxLjc1IiB4bGluazpocmVmPSIjc2hhcGUwIi8+DQogICAgPC9nPg0KICAgIDxnIGlkPSJzaGFwZTAiPg0KICAgICAgPHBhdGggZD0iTTkuNDUgMTAuNyBROC40IDkuMiA4LjA1IDguMDUgTDguMDUgOC4wIFE3LjggNy4xIDcuODUgNi4yIDcuODUgMy43NSA5LjQgMi4wIEwxMC4yIDEuNCBRMTEuMDUgMC45IDEyLjAgMC44NSBMMTIuNCAwLjggMTMuNjUgMS4wIDEzLjg1IDEuMDUgUTE0LjggMS4zNSAxNS41NSAyLjAgTDE1LjcgMi4xIDE2LjYgMy4xNSAxNy43IDIuMCBRMTguNDUgMS4zNSAxOS4zNSAxLjA1IEwyMC44NSAwLjggMjEuMiAwLjg1IFEyMi4yIDAuOSAyMy4wNSAxLjQgMjQuMDUgMi4wIDI0LjcgMy4xNSAyNS4zIDQuMjUgMjUuNCA1LjU1IEwyNS40NSA2LjA1IDI1LjE1IDguMCAyNS4xNSA4LjA1IDIzLjggMTAuNyAyMy4xIDExLjY1IFEyNi44IDkuNSAyOC43IDEwLjAgMzAuNSAxMC4zNSAzMS45NSAxMS44NSBMMzIuMiAxMi4xNSAzMi42NSAxMy4wNSAzMi45IDE0LjUgMzIuOSAxNC45IDMyLjg1IDE1LjMgMzIuNDUgMTYuNTUgMzIuMzUgMTYuNyAzMS42NSAxNy44IFEzMC44NSAxOC43NSAzMC4wNSAxOS4wNSBMMzAuOTUgMjAuMyAzMS41IDIyLjEgMzEuNSAyMy42IDMxLjQ1IDIzLjk1IDMwLjYgMjUuNjUgUTI5LjkgMjYuNTUgMjguNyAyNy4wNSBMMjYuNDUgMjcuMzUgMjUuOTUgMjcuMyAyNC4xNSAyNi43NSAyNC4xIDI2LjcgUTIzLjEgMjYuMiAyMS4yNSAyNC4yNSBMMTguNzUgMjEuNCBRMTkuNiAyNS4yIDE5LjAgMjguMjUgMTguNCAzMS4zIDE3LjQ1IDMyLjg1IDE2LjUgMzQuMyAxNC4yNSAzNC4zNSAxMS45NSAzNC4zNSAxMS42NSAzMi41NSAxMS4zNSAzMC43IDEyLjEgMzAuNiBMMTMuNzUgMzAuMTUgUTE0LjY1IDI5Ljg1IDE1LjQ1IDI3LjcgMTYuMjUgMjUuNSAxNi4zIDIzLjMgTDE2LjE1IDIxLjEgMTQuOSAyMi45IDEzLjIgMjUuNCAxMS4xNSAyNy4zNSAxMS4xIDI3LjQgOS40IDI4LjE1IDguOTUgMjguMjUgNy45NSAyOC4zNSA2LjYgMjguMTUgUTUuMzUgMjcuOCA0LjU1IDI3LjAgMy44NSAyNi4zNSAzLjYgMjUuNCBMMy41IDI1LjA1IFEzLjI1IDI0LjMgMy4zIDIzLjU1IDMuMyAyMi42IDMuNyAyMS43IDMuOSAyMS4wIDQuNDUgMjAuNCAyLjA1IDE5LjUgMS40NSAxNy43NSAwLjggMTYuMCAxLjUgMTQuMSAyLjE1IDEyLjIgNC4zIDExLjM1IEw1LjEgMTEuMSA2LjU1IDExLjA1IDYuNiAxMS4wNSBRNy42NSAxMS4wNSA5LjM1IDExLjcgTDEwLjYgMTIuMTUgOS40NSAxMC43IiBmaWxsPSIjZmZmZmZmIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHN0cm9rZT0ibm9uZSIvPg0KICAgIDwvZz4NCiAgPC9kZWZzPg0KPC9zdmc+DQo=',
+};
+
+// Load data
+async function loadData() {
+  // Check for embedded data first (standalone mode)
+  if (typeof EMBEDDED_CATS_DATA !== 'undefined' && typeof EMBEDDED_INSIGHTS_DATA !== 'undefined') {
+    catsData = EMBEDDED_CATS_DATA;
+    insightsData = EMBEDDED_INSIGHTS_DATA;
+    finishLoad();
+    return;
+  }
+  
+  // PyWebView bridge (desktop app) - wait for bridge, load in 2 steps
+  if (typeof IS_PYWEBVIEW !== 'undefined') {
+    async function waitForPyWebView() {
+      for (let i = 0; i < 50; i++) {
+        if (window.pywebview && window.pywebview.api) {
+          try {
+            // Step 1: Load cats data
+            const result = await window.pywebview.api.load_data();
+            const data = JSON.parse(result);
+            if (data.ok && data.cats) {
+              catsData = data.cats;
+              // Step 2: Load insights separately (smaller, avoids transfer limits)
+              try {
+                const insResult = await window.pywebview.api.load_insights();
+                const insData = JSON.parse(insResult);
+                if (insData.ok && insData.insights) {
+                  insightsData = insData.insights;
+                } else {
+                  insightsData = null;
+                }
+              } catch (e2) {
+                console.log('Insights load failed:', e2);
+                insightsData = null;
+              }
+              finishLoad();
+              return;
+            }
+          } catch (e) {
+            console.log('PyWebView attempt', i, 'failed:', e.message);
+          }
+        }
+        await new Promise(r => setTimeout(r, 200));
+      }
+      document.getElementById('catCount').textContent = 'Error loading';
+      document.getElementById('catsTableBody').innerHTML = 
+        '<tr><td colspan="8" style="text-align:center;padding:48px;color:var(--warn)">⚠️ Could not connect. Try restarting the app.</td></tr>';
+    }
+    waitForPyWebView();
+    return;
+  }
+  
+  // Try HTTP API (server.py mode)
+  try {
+    const [catsRes, insightsRes] = await Promise.all([
+      fetch('/api/cats'),
+      fetch('/api/insights')
+    ]);
+    if (catsRes.ok && insightsRes.ok) {
+      catsData = await catsRes.json();
+      insightsData = await insightsRes.json();
+      finishLoad();
+      return;
+    }
+  } catch (_) {}
+
+  // Fallback: fetch JSON files
+  try {
+    const [catsRes, insightsRes] = await Promise.all([
+      fetch('cats_data.json'),
+      fetch('breeding_insights.json')
+    ]);
+    catsData = await catsRes.json();
+    insightsData = await insightsRes.json();
+    finishLoad();
+  } catch (e) {
+    console.error('Error loading data:', e);
+    document.getElementById('catCount').textContent = 'Error loading data';
+    document.getElementById('catsTableBody').innerHTML = 
+      '<tr><td colspan="8" style="text-align:center;padding:48px;color:var(--warn)">⚠️ Error loading data. Try restarting the app.</td></tr>';
+  }
+}
+
+function finishLoad() {
+  document.getElementById('catCount').innerHTML = `<strong>${catsData.length}</strong> cats loaded`;
+  populateFilters();
+  populateCatSelector();
+  renderAll();
+}
+
+function refreshData() {
+  const btn = document.querySelector('.header button');
+  
+  // Desktop app: use PyWebView bridge
+  if (typeof IS_PYWEBVIEW !== 'undefined') {
+    if (!window.pywebview || !window.pywebview.api) {
+      alert('Bridge not ready. Try again in a moment.');
+      return;
+    }
+    if (btn) { btn.textContent = 'Loading...'; btn.disabled = true; }
+    
+    window.pywebview.api.refresh_data().then(result => {
+      const data = JSON.parse(result);
+      if (data.ok) {
+        catsData = data.cats;
+        return window.pywebview.api.load_insights();
+      }
+      throw new Error(data.error || 'Refresh failed');
+    }).then(insResult => {
+      const insData = JSON.parse(insResult);
+      if (insData.ok && insData.insights) {
+        insightsData = insData.insights;
+      }
+      finishLoad();
+      if (btn) { btn.textContent = 'Refresh'; btn.disabled = false; }
+    }).catch(err => {
+      alert('Error: ' + err.message);
+      if (btn) { btn.textContent = 'Refresh'; btn.disabled = false; }
+    });
+    return;
+  }
+  
+  btn.textContent = '⏳ Extracting...';
+  btn.disabled = true;
+  
+  // HTTP server mode
+  fetch('/api/refresh')
+    .then(r => r.json())
+    .then(result => {
+      if (!result.success) throw new Error(result.error || 'Refresh failed');
+      return Promise.all([fetch('/api/cats').then(r => r.json()), fetch('/api/insights').then(r => r.json())]);
+    })
+    .then(([cats, insights]) => {
+      catsData = cats;
+      insightsData = insights;
+      finishLoad();
+      btn.textContent = '🔄 Atualizar';
+      btn.disabled = false;
+    })
+    .catch(err => {
+      alert('Error refreshing: ' + err.message);
+      btn.textContent = '🔄 Atualizar';
+      btn.disabled = false;
+    });
+}
+
+function populateFilters() {
+  const classes = [...new Set(catsData.map(c => c.cat_class).filter(Boolean))].sort();
+  const breeds = [...new Set(catsData.map(c => c.breed_code).filter(Boolean))].sort();
+  
+  const classSelect = document.getElementById('classFilter');
+  classes.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c;
+    opt.textContent = c;
+    classSelect.appendChild(opt);
+  });
+  
+  const breedSelect = document.getElementById('breedFilter');
+  breeds.forEach(b => {
+    const opt = document.createElement('option');
+    opt.value = b;
+    opt.textContent = b;
+    breedSelect.appendChild(opt);
+  });
+}
+
+function getFilteredCats() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const gender = document.getElementById('genderFilter').value;
+  const cls = document.getElementById('classFilter').value;
+  const breed = document.getElementById('breedFilter').value;
+  const status = document.getElementById('statusFilter').value;
+  const activeOnly = document.getElementById('activeOnlyFilter').checked;
+  
+  return catsData.filter(cat => {
+    if (activeOnly && !cat.is_active) return false;
+    if (gender && cat.gender !== gender) return false;
+    if (cls && cat.cat_class !== cls) return false;
+    if (breed && cat.breed_code !== breed) return false;
+    if (status) {
+      const rawStatus = cat.user_status || cat.status || 'Alive';
+      const statusMap = {'Vivo':'Alive','Morto':'Dead','Doado':'Donated','Retirado':'Retired'};
+      const catStatus = statusMap[rawStatus] || rawStatus;
+      if (catStatus !== status) return false;
+    }
+    if (search) {
+      const haystack = [
+        cat.name, cat.gender, cat.cat_class, cat.breed_code,
+        cat.stat_focus, cat.stat_tier, cat.status,
+        ...(cat.abilities || []), ...(cat.items || [])
+      ].join(' ').toLowerCase();
+      if (!haystack.includes(search)) return false;
+    }
+    return true;
+  });
+}
+
+function sortCats(cats) {
+  const { field, asc } = currentSort;
+  return [...cats].sort((a, b) => {
+    let va = a[field] ?? '';
+    let vb = b[field] ?? '';
+    if (typeof va === 'string') va = va.toLowerCase();
+    if (typeof vb === 'string') vb = vb.toLowerCase();
+    if (va < vb) return asc ? -1 : 1;
+    if (va > vb) return asc ? 1 : -1;
+    return 0;
+  });
+}
+
+function renderStats() {
+  const filtered = getFilteredCats();
+  const genders = {};
+  const statuses = {};
+  filtered.forEach(c => { 
+    genders[c.gender] = (genders[c.gender]||0) + 1;
+    const s = c.user_status || c.status || 'Alive';
+    statuses[s] = (statuses[s]||0) + 1;
+  });
+  
+  const totalActive = catsData.filter(c => c.is_active).length;
+  const available = catsData.filter(c => c.available).length;
+  
+  document.getElementById('statsBar').innerHTML = `
+    <div class="stat-card"><div class="label">Filtered</div><div class="value">${filtered.length}</div></div>
+    <div class="stat-card"><div class="label">🏠 Active</div><div class="value" style="color:var(--accent2)">${totalActive}</div></div>
+    <div class="stat-card"><div class="label">💚 Available</div><div class="value" style="color:var(--accent2)">${available}</div></div>
+    <div class="stat-card"><div class="label">♀ Female</div><div class="value" style="color:var(--female)">${genders['Female']||0}</div></div>
+    <div class="stat-card"><div class="label">♂ Male</div><div class="value" style="color:var(--male)">${genders['Male']||0}</div></div>
+    <div class="stat-card"><div class="label">💀 Dead</div><div class="value" style="color:var(--warn)">${statuses['Dead']||0}</div></div>
+    <div class="stat-card"><div class="label">📤 Donated</div><div class="value" style="color:var(--accent)">${statuses['Donated']||0}</div></div>
+  `;
+}
+
+function renderCatsTable() {
+  const filtered = sortCats(getFilteredCats());
+  const tbody = document.getElementById('catsTableBody');
+  const empty = document.getElementById('emptyState');
+  
+  if (filtered.length === 0) {
+    tbody.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    tbody.innerHTML = filtered.map(cat => {
+      const rawStatus = cat.user_status || cat.status || 'Alive';
+      // Normalize legacy Portuguese statuses
+      const statusMap = {'Vivo':'Alive','Morto':'Dead','Doado':'Donated','Retirado':'Retired'};
+      const status = statusMap[rawStatus] || rawStatus;
+      
+      // Build substatus badges
+      let badges = '';
+      if (cat.is_retired && status === 'Alive') badges += '<span class="sub-badge retired">Retired</span>';
+      if (cat.is_donated && status !== 'Dead') badges += '<span class="sub-badge donated">Donated</span>';
+      if (cat.is_old) badges += '<span class="sub-badge old">Old</span>';
+      
+      return `
+      <tr>
+        <td>${cat.id}</td>
+        <td class="name-cell" onclick="showCatDetail(${cat.id})" style="cursor:pointer">${escHtml(cat.name)}</td>
+        <td class="gender-${cat.gender?.toLowerCase()}">${cat.gender === 'Female' ? '♀' : cat.gender === 'Male' ? '♂' : '?'} ${cat.gender}</td>
+        <td style="font-size:0.8rem;color:var(--text2)">${cat.location || (cat.is_active ? '—' : '<span style="color:var(--warn);opacity:0.5">inactive</span>')}</td>
+        <td><span class="breed-tag" title="${cat.stat_tier} ${cat.stat_focus}">${cat.breed_code}</span></td>
+        <td><span class="class-tag class-${cat.cat_class}">${cat.cat_class}</span></td>
+        <td><span class="status-tag status-${status}" onclick="event.stopPropagation(); cycleStatus(${cat.id})" title="Click to cycle: Alive → Dead → Donated → Retired">${status}${badges}</span></td>
+        <td>
+          <div class="ability-list">
+            ${(cat.items || []).map(i => `<span class="item-tag">${escHtml(i)}</span>`).join('')}
+            ${(cat.abilities || []).slice(0, 5).map(a => `<span class="ability-tag">${escHtml(a)}</span>`).join('')}
+            ${(cat.abilities || []).length > 5 ? `<span class="ability-tag">+${cat.abilities.length - 5}</span>` : ''}
+          </div>
+        </td>
+      </tr>
+    `}).join('');
+  }
+}
+
+function renderBreeding() {
+  // SAFETY: always show diagnostic info
+  var dbgPairCount = document.getElementById('pairCount');
+  var dbgGrid = document.getElementById('breedingGrid');
+  
+  if (!dbgGrid) return;
+  
+  // Show raw info before anything else
+  var diag = '';
+  if (!insightsData) {
+    diag = 'ERROR: insightsData is null/undefined';
+    dbgGrid.innerHTML = '<div style="padding:12px;color:var(--warn);">' + diag + '</div>';
+    return;
+  }
+  
+  var cp = insightsData.compatible_pairs;
+  diag = 'insightsData OK. compatible_pairs type=' + (typeof cp) + ' isArray=' + Array.isArray(cp);
+  if (Array.isArray(cp)) diag += ' length=' + cp.length;
+  else diag += ' value=' + JSON.stringify(cp).substring(0, 100);
+  
+  // Show diagnostic
+  dbgGrid.innerHTML = '<div style="padding:8px;margin-bottom:8px;background:var(--bg3);border-radius:6px;color:var(--text2);font-size:0.8rem;">' + diag + '</div>';
+  
+  // Now render normally
+  if (!Array.isArray(cp) || cp.length === 0) {
+    dbgGrid.innerHTML += '<div class="empty-state"><div class="icon">😿</div><p>No pairs to show. ' + diag + '</p></div>';
+    return;
+  }
+  
+  const blockedPairs = safeGetLocalStorage('mewgenics_blocked_pairs', []);
+  const blockKey = (a, b) => a < b ? `${a}-${b}` : `${b}-${a}`;
+  const allPairs = cp;
+  const avail = insightsData.available_cats || 0;
+  
+  // Filter by selected cats
+  let displayPairs = allPairs;
+  if (selectedCats.length > 0) {
+    displayPairs = allPairs.filter(p =>
+      selectedCats.includes(p.male_id) || selectedCats.includes(p.female_id)
+    );
+  }
+  
+  // Split into clean and consanguineous
+  const cleanPairs = displayPairs.filter(p => (p.kinship_penalty || 0) >= 0);
+  const consangPairs = displayPairs.filter(p => (p.kinship_penalty || 0) < 0);
+  const blockedCount = allPairs.filter(p => blockedPairs.includes(blockKey(p.male_id, p.female_id))).length;
+  
+  // DEBUG: show clear summary
+  let summary = `Total pairs: ${allPairs.length} | Clean: ${cleanPairs.length} | Consang: ${consangPairs.length}`;
+  if (blockedCount > 0) summary += ` | Blocked: ${blockedCount}`;
+  if (selectedCats.length > 0) summary += ` | Filtered by ${selectedCats.length} cat(s)`;
+  document.getElementById('pairCount').textContent = summary;
+  
+  let html = '';
+  
+  if (cleanPairs.length > 0 || consangPairs.length > 0) {
+    // Clean section
+    html += `<details open style="margin-bottom:16px;">
+      <summary style="cursor:pointer;font-weight:600;font-size:1rem;padding:8px;background:var(--bg3);border-radius:8px;color:var(--accent2);">
+        ✅ Clean Pairs (${cleanPairs.length})
+      </summary>
+      <div class="breeding-grid-inner" style="margin-top:8px;">${renderPairList(cleanPairs, blockedPairs, blockKey)}</div>
+    </details>`;
+    
+    // Consanguineous section
+    if (consangPairs.length > 0) {
+      html += `<details open style="margin-bottom:16px;">
+        <summary style="cursor:pointer;font-weight:600;font-size:1rem;padding:8px;background:var(--bg3);border-radius:8px;color:var(--warn);">
+          🚫 Consanguineous Pairs (${consangPairs.length})
+        </summary>
+        <div class="breeding-grid-inner" style="margin-top:8px;">${renderPairList(consangPairs, blockedPairs, blockKey)}</div>
+      </details>`;
+    }
+  } else {
+    html = '<div class="empty-state"><div class="icon">😿</div><p>Debug: No pairs found. allPairs.length=' + allPairs.length + ' avail=' + avail + '</p></div>';
+  }
+  
+  document.getElementById('breedingGrid').innerHTML = html;
+}
+
+// Pagination state
+let breedPage = {};
+const PAGE_SIZE = 50;
+
+function renderPairList(pairs, blockedPairs, blockKey) {
+  const key = pairs.length + '-' + (pairs[0] ? pairs[0].kinship_penalty || 0 : 0);
+  if (!breedPage[key]) breedPage[key] = 0;
+  const page = breedPage[key];
+  const totalPages = Math.ceil(pairs.length / PAGE_SIZE);
+  const pagePairs = pairs.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+  
+  const allStats = ['STR','DEX','CON','INT','SPD','CHA','LUCK'];
+  
+  let html = '';
+  if (pagePairs.length === 0) {
+    html = '<p style="color:var(--text2);text-align:center;padding:16px;">No pairs.</p>';
+  } else {
+    html = pagePairs.map(pair => {
+      const pkey = blockKey(pair.male_id, pair.female_id);
+      const isBlocked = blockedPairs.includes(pkey);
+      const covered = pair.stat7_covered || [];
+      const missing = pair.stat7_missing || [];
+      const s7count = pair.stat7_count || 0;
+      const expTotal = pair.expected_total || 0;
+      const reasons = pair.reasons || [];
+      const kinshipReasons = reasons.filter(r => r.includes('PARENT') || r.includes('SIBLING') || r.includes('GRANDPARENT') || r.includes('AUNT') || r.includes('COUSIN') || r.includes('mutation') || r.includes('inbreeding') || r.includes('CONSANGUINITY') || r.includes('Consanguinity') || r.includes('relation'));
+      const isInbreeding = kinshipReasons.length > 0;
+      
+      const statBars = allStats.map(s => {
+        const has7 = covered.includes(s);
+        return `<span style="display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;border-radius:4px;font-size:0.65rem;font-weight:700;${has7 ? 'background:var(--accent2);color:#000' : 'background:var(--bg3);color:var(--text2)'}" title="${s}${has7 ? ' ✓' : ''}">${s}</span>`;
+      }).join('');
+      
+      const toggleBtn = `<button onclick="toggleBlock(${pair.male_id},${pair.female_id})" style="background:none;border:1px solid ${isBlocked ? 'var(--accent2)' : 'var(--border)'};color:${isBlocked ? 'var(--accent2)' : 'var(--warn)'};padding:2px 8px;border-radius:4px;cursor:pointer;font-size:0.7rem;font-family:inherit;">${isBlocked ? '✅ Unblock' : '⛔ Block'}</button>`;
+      
+      return `
+    <div class="pair-card" style="${isBlocked ? 'border-color:var(--warn);opacity:0.5;background:rgba(248,81,73,0.05)' : isInbreeding ? 'border-color:var(--warn)' : expTotal >= 46 ? 'border-color:var(--gold)' : ''}">
+      <div class="pair-header">
+        <span>${pair.type || 'M/F'} — #${pair.male_id} × #${pair.female_id}${isBlocked ? ' <span style="color:var(--warn)">[BLOCKED]</span>' : ''}</span>
+        <div style="text-align:right;">
+          <span class="pair-score">⭐ ${pair.score}</span>
+          <div style="font-size:0.65rem;color:var(--text2);">exp. ${expTotal}/49</div>
+        </div>
+      </div>
+      <div class="pair-parents">
+        <span class="male" onclick="showCatDetail(${pair.male_id})" style="cursor:pointer" title="View details">♂ ${escHtml(pair.male_name)}</span>
+        <span class="cross">×</span>
+        <span class="female" onclick="showCatDetail(${pair.female_id})" style="cursor:pointer" title="View details">♀ ${escHtml(pair.female_name)}</span>
+        <span style="margin-left:auto;">${toggleBtn}</span>
+      </div>
+      ${isInbreeding && !isBlocked ? kinshipReasons.map(r => `
+      <div style="margin:6px 0;padding:6px 10px;background:rgba(248,81,73,0.15);border:1px solid var(--warn);border-radius:6px;text-align:center;">
+        <span style="color:var(--warn);font-weight:700;font-size:0.8rem;">🚫 ${escHtml(r)}</span>
+      </div>`).join('') : ''}
+      <div style="margin:8px 0;display:flex;gap:3px;justify-content:center;">${statBars}</div>
+      <div style="text-align:center;font-size:0.75rem;color:var(--text2);margin-bottom:6px;">
+        Expected: <strong>${expTotal.toFixed(1)}</strong>/49 — ${s7count}/7 parent 7s ${missing.length > 0 ? `— missing ${missing.join(', ')}` : '🔥 ALL 7!'}
+      </div>
+      <ul class="pair-reasons" style="${isBlocked ? 'opacity:0.4' : ''}">
+        ${reasons.filter(r => !r.includes('PARENT') && !r.includes('SIBLING') && !r.includes('GRANDPARENT') && !r.includes('AUNT') && !r.includes('COUSIN') && !r.includes('mutation') && !r.includes('inbreeding') && !r.includes('CONSANGUINITY') && !r.includes('Consanguinity') && !r.includes('relation')).map(r => `<li>${escHtml(r)}</li>`).join('')}
+      </ul>
+    </div>`;
+    }).join('');
+  }
+  
+  // Pagination
+  if (totalPages > 1) {
+    html += `<div style="display:flex;justify-content:center;align-items:center;gap:12px;padding:12px;">
+      <button onclick="breedPage['${key}']=Math.max(0,breedPage['${key}']-1);renderBreeding()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:0.8rem;" ${page <= 0 ? 'disabled' : ''}>◀ Previous</button>
+      <span style="font-size:0.85rem;color:var(--text2);">Page ${page+1} of ${totalPages}</span>
+      <button onclick="breedPage['${key}']=Math.min(${totalPages-1},breedPage['${key}']+1);renderBreeding()" style="background:var(--bg3);border:1px solid var(--border);color:var(--text);padding:4px 12px;border-radius:4px;cursor:pointer;font-family:inherit;font-size:0.8rem;" ${page >= totalPages-1 ? 'disabled' : ''}>Next ▶</button>
+    </div>`;
+  }
+  
+  return html;
+}
+
+function toggleBlock(idA, idB) {
+  const key = idA < idB ? `${idA}-${idB}` : `${idB}-${idA}`;
+  let blocked = safeGetLocalStorage('mewgenics_blocked_pairs', []);
+  if (blocked.includes(key)) {
+    blocked = blocked.filter(k => k !== key);
+  } else {
+    blocked.push(key);
+  }
+  safeSetLocalStorage('mewgenics_blocked_pairs', blocked);
+  renderBreeding();
+  if (document.getElementById('blockedPairsPanel')) renderBlockedPairs();
+}
+
+function populateCatSelector() {
+  const container = document.getElementById('catSelector');
+  if (!container) return;
+  const label = container.querySelector('span');
+  const clearBtn = document.getElementById('clearCatBtn');
+  container.innerHTML = '';
+  if (label) container.appendChild(label);
+  
+  const availCats = catsData.filter(c => c.available).sort((a, b) => a.name.localeCompare(b.name));
+  availCats.forEach(cat => {
+    const isSelected = selectedCats.includes(cat.id);
+    const btn = document.createElement('button');
+    btn.textContent = `${cat.gender === 'Female' ? '♀' : cat.gender === 'Male' ? '♂' : '?'} ${cat.name}`;
+    btn.style.cssText = `background:${isSelected ? 'var(--accent)' : 'var(--bg3)'};border:1px solid ${isSelected ? 'var(--accent)' : 'var(--border)'};color:${isSelected ? '#000' : 'var(--text)'};padding:3px 10px;border-radius:14px;cursor:pointer;font-size:0.75rem;font-family:inherit;transition:all 0.15s;`;
+    btn.onclick = () => toggleCatSelection(cat.id);
+    btn.title = `#${cat.id} — ${cat.cat_class} (${cat.breed_code})`;
+    container.appendChild(btn);
+  });
+  if (clearBtn) container.appendChild(clearBtn);
+  document.getElementById('clearCatBtn').style.display = selectedCats.length > 0 ? 'inline-block' : 'none';
+}
+
+function toggleCatSelection(catId) {
+  const idx = selectedCats.indexOf(catId);
+  if (idx >= 0) selectedCats.splice(idx, 1);
+  else selectedCats.push(catId);
+  populateCatSelector();
+  renderBreeding();
+}
+
+function clearCatFilter() {
+  selectedCats = [];
+  populateCatSelector();
+  renderBreeding();
+}
+
+function unblockPair(key) {
+  const [idA, idB] = key.split('-').map(Number);
+  toggleBlock(idA, idB);
+}
+
+function renderStatsTab() {
+  if (!insightsData) return;
+  
+  // Class distribution
+  const classDist = insightsData.class_distribution || {};
+  const maxClass = Math.max(...Object.values(classDist), 1);
+  document.getElementById('classChart').innerHTML = Object.entries(classDist)
+    .sort((a, b) => b[1] - a[1])
+    .map(([cls, count]) => `
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:100px;text-align:right;font-size:0.85rem;" class="class-tag class-${cls}">${cls}</span>
+        <div style="flex:1;background:var(--bg3);border-radius:4px;height:20px;">
+          <div style="width:${(count/maxClass*100).toFixed(0)}%;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.5s;"></div>
+        </div>
+        <span style="width:30px;font-size:0.85rem;font-weight:600;">${count}</span>
+      </div>
+    `).join('');
+  
+  // Breed distribution
+  const breedDist = insightsData.breed_distribution || {};
+  const sortedBreeds = Object.entries(breedDist).sort((a, b) => b[1] - a[1]).slice(0, 15);
+  const maxBreed = Math.max(...sortedBreeds.map(b => b[1]), 1);
+  document.getElementById('breedChart').innerHTML = sortedBreeds
+    .map(([breed, count]) => `
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="width:100px;text-align:right;font-family:monospace;font-size:0.85rem;" class="breed-tag">${breed}</span>
+        <div style="flex:1;background:var(--bg3);border-radius:4px;height:20px;">
+          <div style="width:${(count/maxBreed*100).toFixed(0)}%;height:100%;border-radius:4px;background:linear-gradient(90deg,#f778ba,#a371f7);transition:width 0.5s;"></div>
+        </div>
+        <span style="width:30px;font-size:0.85rem;font-weight:600;">${count}</span>
+      </div>
+    `).join('');
+  
+  // Rare abilities
+  const rare = insightsData.rare_abilities || [];
+  document.getElementById('rareAbilities').innerHTML = rare.slice(0, 30).map(a => `
+    <span class="ability-tag" style="font-size:0.85rem;padding:4px 12px;">
+      ${escHtml(a.ability)} <span style="opacity:0.7">(${a.count})</span>
+    </span>
+  `).join('');
+  
+  // Stat-7 Leaderboard
+  const s7 = insightsData.stat7_summary || [];
+  const allStats = ['STR','DEX','CON','INT','SPD','CHA','LUCK'];
+  document.getElementById('stat7Board').innerHTML = s7.length === 0
+    ? '<p style="color:var(--text2)">No cats with stat-7 found.</p>'
+    : '<div style="display:flex;flex-direction:column;gap:8px;">' + s7.map(c => {
+        const stats = c.stat7_list || [];
+        const bars = allStats.map(s => {
+          const has7 = stats.includes(s);
+          return `<span style="display:inline-block;width:28px;height:28px;line-height:28px;text-align:center;border-radius:4px;font-size:0.65rem;font-weight:700;${has7 ? 'background:var(--accent2);color:#000' : 'background:var(--bg3);color:var(--text2);opacity:0.4'}" title="${s}${has7 ? ' ✓' : ''}">${s}</span>`;
+        }).join('');
+        const activeTag = c.is_active ? '<span style="color:var(--accent2)">🏠</span>' : '';
+        return `<div style="display:flex;align-items:center;gap:8px;padding:8px;background:var(--bg3);border-radius:8px;">
+          <span style="width:20px;font-weight:600;color:var(--text2)">${c.stat7_count}</span>
+          <span style="font-weight:600;flex:1;">${escHtml(c.name)} ${activeTag}</span>
+          <div style="display:flex;gap:3px;">${bars}</div>
+          <span style="font-size:0.8rem;color:var(--text2);min-width:28px;text-align:right;">${c.stat_total}/49</span>
+        </div>`;
+      }).join('') + '</div>';
+  
+  document.getElementById('statsDetailBar').innerHTML = `
+    <div class="stat-card"><div class="label">Total de Gatos</div><div class="value">${insightsData.total_cats}</div></div>
+    <div class="stat-card"><div class="label">Habilidade + Rara</div><div class="value" style="font-size:0.9rem;color:var(--rare)">${rare.length > 0 ? escHtml(rare[0].ability) : 'N/A'}</div></div>
+    <div class="stat-card"><div class="label">Top Classe</div><div class="value" style="font-size:1rem;color:var(--accent)">${Object.entries(classDist).sort((a,b)=>b[1]-a[1])[0]?.[0] || 'N/A'}</div></div>
+  `;
+  
+  // Blocked pairs panel
+  renderBlockedPairs();
+}
+
+function renderBlockedPairs() {
+  const blocked = safeGetLocalStorage('mewgenics_blocked_pairs', []);
+  const panel = document.getElementById('blockedPairsPanel');
+  if (!panel) return;
+  
+  if (blocked.length === 0) {
+    panel.innerHTML = '<p style="color:var(--text2);font-size:0.85rem;">No blocked pairs.</p>';
+    return;
+  }
+  
+  panel.innerHTML = blocked.map(key => {
+    const [idA, idB] = key.split('-').map(Number);
+    const catA = catsData.find(c => c.id === idA);
+    const catB = catsData.find(c => c.id === idB);
+    const nameA = catA ? catA.name : `Cat #${idA}`;
+    const nameB = catB ? catB.name : `Cat #${idB}`;
+    return `
+      <div style="display:flex;align-items:center;gap:8px;padding:6px 10px;background:var(--bg3);border-radius:6px;margin-bottom:4px;">
+        <span style="flex:1;font-size:0.85rem;">⛔ ${escHtml(nameA)} × ${escHtml(nameB)}</span>
+        <button onclick="unblockPair('${key}')" style="background:none;border:1px solid var(--border);color:var(--accent2);padding:2px 10px;border-radius:4px;cursor:pointer;font-size:0.75rem;font-family:inherit;">Unblock</button>
+      </div>`;
+  }).join('');
+}
+
+function renderAll() {
+  try { renderStats(); renderCatsTable(); } catch(e) { showError('renderStats/Cats', e); }
+  try { renderBreeding(); } catch(e) { showError('renderBreeding', e); }
+  try { renderStatsTab(); } catch(e) { showError('renderStatsTab', e); }
+}
+
+function showError(section, e) {
+  var grid = document.getElementById('breedingGrid');
+  if (grid) {
+    grid.innerHTML += '<div style="margin:8px;padding:12px;background:rgba(248,81,73,0.15);border:1px solid var(--warn);border-radius:6px;color:var(--warn);font-size:0.85rem;"><strong>Error in ' + section + ':</strong> ' + e.message + '</div>';
+  }
+}
+
+// Event handlers
+document.getElementById('searchInput').addEventListener('input', () => { renderStats(); renderCatsTable(); });
+document.getElementById('genderFilter').addEventListener('change', () => { renderStats(); renderCatsTable(); });
+document.getElementById('classFilter').addEventListener('change', () => { renderStats(); renderCatsTable(); });
+document.getElementById('breedFilter').addEventListener('change', () => { renderStats(); renderCatsTable(); });
+document.getElementById('statusFilter').addEventListener('change', () => { renderStats(); renderCatsTable(); });
+
+// Sort handlers
+document.querySelectorAll('th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const field = th.dataset.sort;
+    if (currentSort.field === field) {
+      currentSort.asc = !currentSort.asc;
+    } else {
+      currentSort.field = field;
+      currentSort.asc = true;
+    }
+    // Update arrows
+    document.querySelectorAll('th .sort-arrow').forEach(a => a.remove());
+    th.innerHTML += ` <span class="sort-arrow">${currentSort.asc ? '▲' : '▼'}</span>`;
+    renderCatsTable();
+  });
+});
+
+// Tab switching
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// Cat detail modal
+function showCatDetail(id) {
+  const cat = catsData.find(c => c.id === id);
+  if (!cat) return;
+  
+  const status = cat.user_status || cat.status || 'Alive';
+  const statusMap = {'Vivo':'Alive','Morto':'Dead','Doado':'Donated','Retirado':'Retired'};
+  const normStatus = statusMap[status] || status;
+  
+  // Stat icons grid
+  const allStats = ['STR','DEX','CON','INT','SPD','CHA','LUCK'];
+  const statNames = {'STR':'Strength','DEX':'Dexterity','CON':'Constitution','INT':'Intelligence','SPD':'Speed','CHA':'Charisma','LUCK':'Luck'};
+  const statGrid = allStats.map(s => {
+    const val = (cat.stats || {})[s] || '?';
+    const is7 = val === 7;
+    return `
+      <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:8px;background:${is7 ? 'rgba(63,185,80,0.15)' : 'var(--bg3)'};border-radius:8px;border:1px solid ${is7 ? 'var(--accent2)' : 'var(--border)'};">
+        <img src="${STAT_ICONS[s]}" style="width:28px;height:28px;" alt="${s}">
+        <span style="font-size:0.6rem;color:var(--text2);font-weight:600;">${statNames[s]}</span>
+        <span style="font-size:1.1rem;font-weight:700;color:${is7 ? 'var(--accent2)' : 'var(--text)'};">${val}</span>
+      </div>`;
+  }).join('');
+  
+  const abilities = (cat.abilities || []).map(a => `<span class="ability-tag">${escHtml(a)}</span>`).join('') || '<span style="color:var(--text2)">None</span>';
+  const items = (cat.items || []).map(i => `<span class="item-tag">${escHtml(i)}</span>`).join('') || '<span style="color:var(--text2)">None</span>';
+  
+  document.getElementById('modalName').textContent = `#${cat.id} ${cat.name}`;
+  document.getElementById('modalDetails').innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px;">
+      <div class="detail-row"><span class="detail-label">Gender</span><span>${cat.gender === 'Female' ? '♀' : '♂'} ${cat.gender}</span></div>
+      <div class="detail-row"><span class="detail-label">Class</span><span class="class-tag class-${cat.cat_class}">${cat.cat_class}</span></div>
+      <div class="detail-row"><span class="detail-label">Location</span><span style="font-size:0.85rem;">${cat.is_active ? (cat.location || '(House)') : '<span style="color:var(--warn)">Inactive</span>'}</span></div>
+      <div class="detail-row"><span class="detail-label">Available</span><span style="color:${cat.available ? 'var(--accent2)' : 'var(--warn)'}">${cat.available ? '✅ Yes' : '❌ No'}</span></div>
+      <div class="detail-row"><span class="detail-label">Status</span><span>
+        <span class="status-tag status-${normStatus}">${normStatus}</span>
+        ${cat.is_retired ? '<span class="sub-badge retired">Retired</span>' : ''}
+        ${cat.is_old ? '<span class="sub-badge old">Old</span>' : ''}
+      </span></div>
+      <div class="detail-row"><span class="detail-label">Breed</span><span class="breed-tag">${cat.breed_code} ${cat.stat_tier !== 'unknown' ? `(${cat.stat_tier} ${cat.stat_focus})` : ''}</span></div>
+    </div>
+    
+    <h4 style="color:var(--text2);margin-bottom:10px;font-size:0.85rem;">Base Stats <span style="font-weight:400;color:var(--text2)">(${cat.stat_total || '?'}/49)</span></h4>
+    <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:16px;">
+      ${statGrid}
+    </div>
+    
+    <div style="margin-top:12px;">
+      <strong style="font-size:0.85rem;">Abilities (${(cat.abilities || []).length}):</strong>
+      <div class="ability-list" style="margin-top:6px;">${abilities}</div>
+    </div>
+    <div style="margin-top:12px;">
+      <strong style="font-size:0.85rem;">Items (${(cat.items || []).length}):</strong>
+      <div class="ability-list" style="margin-top:6px;">${items}</div>
+    </div>
+  `;
+  document.getElementById('catModal').classList.add('active');
+}
+
+function closeModal() {
+  document.getElementById('catModal').classList.remove('active');
+}
+
+document.getElementById('catModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) closeModal();
+});
+
+function cycleStatus(catId) {
+  const cat = catsData.find(c => c.id === catId);
+  if (!cat) return;
+  const cycle = ['Alive', 'Dead', 'Donated', 'Retired'];
+  const current = cat.user_status || cat.status || 'Alive';
+  // Normalize legacy names
+  const legacyMap = {'Vivo':'Alive','Morto':'Dead','Doado':'Donated','Retirado':'Retired'};
+  const normalized = legacyMap[current] || current;
+  const idx = cycle.indexOf(normalized);
+  cat.user_status = cycle[(idx + 1) % cycle.length];
+  renderCatsTable();
+  renderStats();
+}
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// Init
+loadData();
+</script>
+
+</body>
+</html>
