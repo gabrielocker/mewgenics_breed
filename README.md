@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/gabrielocker/mewgenics_breed/releases/download/alpha/MewgenicsBreeding.exe">
-    <img src="https://img.shields.io/badge/⬇%20Baixar%20MewgenicsBreeding.exe%20⬇-008000?style=for-the-badge&logo=windows&logoColor=white" alt="Download">
+    <img src="https://img.shields.io/badge/⬇%20Download%20MewgenicsBreeding.exe%20⬇-008000?style=for-the-badge&logo=windows&logoColor=white" alt="Download">
   </a>
   <br>
   <sub>~15 MB • Windows 10/11 • WebView2 incluso no sistema</sub>
