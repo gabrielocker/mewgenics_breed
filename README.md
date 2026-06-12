@@ -5,7 +5,7 @@
     <img src="https://img.shields.io/badge/⬇%20Download%20MewgenicsBreeding.exe%20⬇-008000?style=for-the-badge&logo=windows&logoColor=white" alt="Download">
   </a>
   <br>
-  <sub>~15 MB • Windows 10/11 • WebView2 incluso no sistema</sub>
+  <sub>Save anywhere and open it. Refresh whenever you change your cat composition</sub>
 </p>
 
 Desktop app for analyzing cat genetics and breeding pairs from *Mewgenics* save files. Extracts cat data directly from `.sav` file, reconstructs family trees from the pedigree table, and scores all viable breeding pairs using the game's current stats.
