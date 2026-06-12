@@ -1,0 +1,4217 @@
+{
+  "total_cats": 211,
+  "available_cats": 15,
+  "gender_distribution": {
+    "Male": 91,
+    "Female": 94,
+    "Ditto": 26
+  },
+  "class_distribution": {
+    "Colorless": 120,
+    "Hunter": 16,
+    "Mage": 12,
+    "Fighter": 11,
+    "Medic": 21,
+    "Tank": 12,
+    "Thief": 10,
+    "Necromancer": 9
+  },
+  "breed_distribution": {
+    "pint": 9,
+    "unknown": 137,
+    "pdex": 8,
+    "pcha": 7,
+    "pstr": 3,
+    "vcon": 7,
+    "tstr": 3,
+    "tdex": 2,
+    "vlck": 2,
+    "pspd": 2,
+    "vdex": 3,
+    "vint": 4,
+    "tlck": 1,
+    "sdex": 4,
+    "sspd": 3,
+    "sint": 2,
+    "slck": 3,
+    "tspd": 1,
+    "sstr": 2,
+    "vspd": 2,
+    "vcha": 2,
+    "pcon": 1,
+    "plck": 2,
+    "vstr": 1
+  },
+  "stat_focus_distribution": {
+    "Primary_Intelligence": 9,
+    "unknown_unknown": 137,
+    "Primary_Dexterity": 8,
+    "Primary_Charisma": 7,
+    "Primary_Strength": 3,
+    "Variant_Constitution": 7,
+    "Tertiary_Strength": 3,
+    "Tertiary_Dexterity": 2,
+    "Variant_Luck": 2,
+    "Primary_Speed": 2,
+    "Variant_Dexterity": 3,
+    "Variant_Intelligence": 4,
+    "Tertiary_Luck": 1,
+    "Secondary_Dexterity": 4,
+    "Secondary_Speed": 3,
+    "Secondary_Intelligence": 2,
+    "Secondary_Luck": 3,
+    "Tertiary_Speed": 1,
+    "Secondary_Strength": 2,
+    "Variant_Speed": 2,
+    "Variant_Charisma": 2,
+    "Primary_Constitution": 1,
+    "Primary_Luck": 2,
+    "Variant_Strength": 1
+  },
+  "ability_frequency": {
+    "Roll": 2,
+    "Sunburn": 2,
+    "Toast": 5,
+    "HotBlooded": 1,
+    "Colorless": 120,
+    "Spit": 5,
+    "LookAtMe": 2,
+    "SelfAssured": 1,
+    "ColdShoulder": 3,
+    "BearTrap": 1,
+    "Shards": 1,
+    "HawkEye": 3,
+    "TowerDefense": 1,
+    "Scatological": 4,
+    "Hunter": 16,
+    "BurgeoningBattery": 3,
+    "Warp": 1,
+    "Inferno": 2,
+    "IcePaws": 1,
+    "Overload": 2,
+    "Mage": 11,
+    "StackTheDeck": 1,
+    "Berserk": 1,
+    "ReflexPunch": 2,
+    "Fighter": 11,
+    "Rest": 2,
+    "FriendOrFoe": 6,
+    "Crusade": 2,
+    "TopOff": 3,
+    "BreathOfLife": 2,
+    "CatRib": 2,
+    "Medic": 21,
+    "Spur": 1,
+    "SteelSkin": 2,
+    "WideLoad": 1,
+    "Tank": 12,
+    "Bolt": 2,
+    "Magnify": 1,
+    "LearnFromMe": 2,
+    "U#.x": 1,
+    "Taint": 7,
+    "SpawnBaitTrap": 3,
+    "AnimalControl": 4,
+    "Fleabag": 3,
+    "MiuT": 1,
+    "ScuffItOff": 5,
+    "Chew": 5,
+    "AssBlast": 1,
+    "Stoic": 2,
+    "Hardy": 1,
+    "Reflect": 3,
+    "OpenWounds": 3,
+    "Adoubement": 1,
+    "Pray": 2,
+    "BareMinimum": 3,
+    "FeatheredCap": 1,
+    "BarbedPaw": 1,
+    "Snacks": 3,
+    "Cleanse": 2,
+    "HolyWeapon": 4,
+    "BlessingOfSpirit": 2,
+    "SubwayRide": 3,
+    "Stalk": 4,
+    "Cheat": 2,
+    "Burgle": 1,
+    "Cripple": 2,
+    "Thief": 11,
+    "Amale": 2,
+    "Suppress": 1,
+    "TerrainWalk": 2,
+    "BombShot": 1,
+    "PoisonLace": 3,
+    "TalkToAnimals": 2,
+    "Quiver": 3,
+    "Endeavor": 4,
+    "Zealot": 4,
+    "AlmsForThePoor": 2,
+    "Bottles": 1,
+    "Enema": 1,
+    "Zmale": 1,
+    "LickHeal": 2,
+    "TankSwap": 1,
+    "FullForce": 1,
+    "ProtectiveAura": 2,
+    "ToadStyle": 2,
+    "BodyGuard": 1,
+    "RockCrusher": 1,
+    "Wrestlemaniac": 1,
+    "HardHead": 2,
+    "FaceShards": 1,
+    "MelonBaller": 1,
+    "RazorBlade": 1,
+    "SeverArtery": 1,
+    "Shadow": 5,
+    "SacculinaCarcini": 1,
+    "MomsKnife": 1,
+    "ElectricCoin": 1,
+    "YT&Q": 1,
+    "HoseOff": 3,
+    "Brainstorm": 3,
+    "HereticMark": 1,
+    "Emergency": 1,
+    "Blessed": 1,
+    "Jitte": 1,
+    "RoidRage": 1,
+    "Toss": 3,
+    "ToTheRescue": 2,
+    "MamaLeech": 3,
+    "Blackjack": 1,
+    "WeirdEgg": 1,
+    "MiniDistract": 2,
+    "Assassinate": 2,
+    "Pinpoint": 2,
+    "Shank": 1,
+    "PropellerCap": 2,
+    "Crucifix": 1,
+    "Chainsaw": 1,
+    "Q$~S": 1,
+    "Ponder": 2,
+    "Burst": 4,
+    "BrambleShot": 2,
+    "LastHit": 1,
+    "CatchProjectiles": 2,
+    "Halo": 1,
+    "VisionPlugin": 1,
+    "Ankh": 1,
+    "Cancer": 1,
+    "Brace": 2,
+    "ReverseDamage": 2,
+    "Caretaker": 2,
+    "ButtScoot": 1,
+    "Picnic": 1,
+    "TakeAim": 2,
+    "SideSlash": 2,
+    "ThinkTooHard": 2,
+    "RatStyle": 2,
+    "HighAsYouCanCount": 1,
+    "SlipThrough": 2,
+    "PoisonNail": 2,
+    "PoisonDip": 1,
+    "BlowKiss": 6,
+    "Smack": 2,
+    "SpawnTomTomFriend": 3,
+    "ArrowSmith": 1,
+    "Spotters": 1,
+    "Till": 2,
+    "ForbiddenFart": 3,
+    "LotteryShottery": 3,
+    "Tmale": 1,
+    "Contort": 2,
+    "MyLeg": 2,
+    "Prayer": 2,
+    "Revive": 1,
+    "BloodFrenzy": 3,
+    "FreezeRay": 4,
+    "HolyMantel": 2,
+    "BurningPaws": 1,
+    "Muzzle": 1,
+    "MeekStone": 1,
+    "Lighter": 1,
+    "LiquidNitrogen": 1,
+    "BarfBall": 4,
+    "Earthquake": 1,
+    "BarbedWire": 2,
+    "SlackOff": 2,
+    "Q?Wo": 1,
+    "Marked": 3,
+    "FocusShot": 1,
+    "SpiderEgg": 2,
+    "Tfemale": 1,
+    "PlayDead": 2,
+    "RockToss": 1,
+    "PetRocks": 1,
+    "Exert": 2,
+    "FighterLeap": 3,
+    "MeteorSlam": 1,
+    "Smash": 1,
+    "ThickSkull": 1,
+    "Bfemale": 1,
+    "Blizzard": 1,
+    "MageTeleport": 3,
+    "Resonance": 1,
+    "Recharged": 3,
+    "Blow": 5,
+    "FullMoon": 2,
+    "Rebirth": 2,
+    "Undeath": 1,
+    "LastGasp": 2,
+    "FlipFlop": 1,
+    "Scabs": 1,
+    "Thorns": 1,
+    "KingsCrown": 1,
+    "Backpack": 1,
+    "MiniHook": 3,
+    "ScatterShot": 2,
+    "Host": 1,
+    "Jfemale": 2,
+    "Booster": 2,
+    "HolyLight": 1,
+    "Eternal": 2,
+    "HealingAura": 2,
+    "BlessingOfHolyFire": 3,
+    "Awaken": 1,
+    "ManaDrain": 1,
+    "CoffinFlop": 1,
+    "FleshGolem": 1,
+    "WormLord": 1,
+    "Callus": 1,
+    "TatteredScrap": 2,
+    "FetusInAJar": 1,
+    "RangedHeal": 3,
+    "Rebuke": 1,
+    "ThrummingSpectacles": 1,
+    "Bible": 1,
+    "Breakfast": 1,
+    "BoG2@`": 1,
+    "Itch": 4,
+    "Counter": 1,
+    "LuckSwing": 1,
+    "Traps": 2,
+    "FecalHood": 2,
+    "RadarDish": 1,
+    "Jazzercise": 1,
+    "WindSlash": 1,
+    "ElementalAttunement": 1,
+    "RollOfPennies": 2,
+    "Flex": 4,
+    "TrainingBand": 1,
+    "Meow": 2,
+    "Wfemale": 1,
+    "HeavyShot": 2,
+    "LineShot": 1,
+    "ThornArrows": 2,
+    "T_Vg": 1,
+    "Smale": 2,
+    "MaggotArmy": 1,
+    "InfiniteRebirth": 1,
+    "AAABattery": 1,
+    "SoulLink": 3,
+    "Leeches": 1,
+    "RelentlessDead": 1,
+    "WetHairball": 2,
+    "Stick": 1,
+    "FalconPunch": 1,
+    "Knead": 4,
+    "Rebound": 1,
+    "FrankBolts": 2,
+    "RallyCharge": 1,
+    "SoothingGlow": 1,
+    "Confront": 1,
+    "Vengeful": 1,
+    "HumanHand": 1,
+    "Z?2c": 1,
+    "Reach": 3,
+    "FurySwipes": 1,
+    "ShoulderCheck": 1,
+    "SkullClamp": 1,
+    "ThrobbingGristle": 4,
+    "WaterBottle_Full": 1,
+    "SpawnPooterFriend": 1,
+    "SleepDarts": 1,
+    "Rouse": 2,
+    "BornAgain": 2,
+    "ThouShaltObey": 1,
+    "WasteTime": 1,
+    "SoulReap": 2,
+    "Shift": 2,
+    "Cmale": 1,
+    "Focus": 5,
+    "Jmale": 1,
+    "WD%Z": 1,
+    "Surf": 2,
+    "MageSwap": 1,
+    "WaterBottle_Half": 1,
+    "FighterTaunt": 1,
+    "SelfDestructButton": 1,
+    "Interchange": 4,
+    "ADHD": 1,
+    "RangedMedic": 1,
+    "Ofemale28i": 4,
+    "Inspire": 1,
+    "FireBolt": 1,
+    "Reanimate": 1,
+    "OffloadPain": 4,
+    "SentryMode": 1,
+    "Infest": 1,
+    "Untouched": 1,
+    "CircleOfProtection": 1,
+    "VeneratedTouch": 1,
+    "ThouShaltNotKill": 1,
+    "PoisonGas": 1,
+    "Agile": 1,
+    "SweetSpot": 1,
+    "Fukumen": 1,
+    "HumanToe": 1,
+    "Hmale": 2,
+    "ChosenWarrior": 1,
+    "ProtectTheWeak": 1,
+    "Infestation": 2,
+    "WeaponMaster": 1,
+    "Scars": 1,
+    "Telefrag": 4,
+    "Absorb": 2,
+    "Blast": 4,
+    "BloodRain": 1,
+    "EternalHealth": 1,
+    "BlackCandle": 1,
+    "H>SRq": 1,
+    "Umale": 1,
+    "PissYourself": 3,
+    "BoostSpellRange": 2,
+    "BountyHunter": 1,
+    "LootHoarder": 2,
+    "Block": 2,
+    "CursedRock": 1,
+    "CarrionShot": 2,
+    "AnimateDead": 1,
+    "OneWithNothing": 1,
+    "PushMove": 2,
+    "Hiss": 1,
+    "HealBolt": 2,
+    "JJ*z": 1,
+    "Reduce": 2,
+    "BurgeoningBarrier": 2,
+    "Omale": 2,
+    "Landscape": 1,
+    "Confusion": 1,
+    "ChainKnockback": 1,
+    "PutridLeech": 2,
+    "BrokenWindow": 1,
+    "FishHook": 1,
+    "Z!djto": 1,
+    "Fireball": 1,
+    "ForbiddenFlame": 1,
+    "PTSD": 1,
+    "Bandage": 1,
+    "Pierce": 1,
+    "Critical": 1,
+    "JH,m": 1,
+    "CatNap": 2,
+    "FindARock": 1,
+    "Omale340m": 1,
+    "CupidsArrow": 1,
+    "MangyWig": 1,
+    "EnergyTransmitter": 1,
+    "PoundOfFlesh_Cursed": 1,
+    "Step": 1,
+    "LightningPaws": 1,
+    "HealingGauze": 1,
+    "Book": 1,
+    "Q?ZI": 1,
+    "FirePunch": 1,
+    "Huddle": 1,
+    "Boned": 1,
+    "Rally": 3,
+    "MeleeHeal": 1,
+    "Heathens": 2,
+    "Copycat": 2,
+    "BurgeoningBlast": 2,
+    "WhipCracker": 1,
+    "Mania": 1,
+    "PrepareToJump": 1,
+    "Rockin": 1,
+    "Protection": 1,
+    "PokeWound": 1,
+    "Trip": 1,
+    "SavantSyndrome": 2,
+    "WeakSpot": 1,
+    "HorseBlinders": 1,
+    "BagOfChum": 2,
+    "BallOfBandages": 1,
+    "TrashCanLid": 1,
+    "EuhaplorchisCaliforniensis": 1,
+    "Flower": 1,
+    "MegaPoop": 1,
+    "Percs": 1,
+    "BloodGeyser": 1,
+    "Feed": 1,
+    "Whisper": 1,
+    "Superstition": 1,
+    "Leechmother": 2,
+    "Infiltrate": 1,
+    "HallowedGround": 1,
+    "PinsAndNeedles": 1,
+    "CinderBlock": 1,
+    "Wafer": 1,
+    "Omale113i": 1,
+    "RussianRoulette": 5,
+    "CutPurse": 1,
+    "FocusBand": 1,
+    "PersuasionDevice_Fixed": 1,
+    "SuperCrateBox": 1,
+    "Metabolize": 4,
+    "Mange": 1,
+    "Bandages": 1,
+    "BrickNecklace": 1,
+    "MeStone": 1,
+    "Turkey": 1,
+    "PawShards": 1,
+    "Caltrops": 1,
+    "SwiftKiller": 1,
+    "Helmet": 1,
+    "Chicken": 1,
+    "Ofemale36p": 1,
+    "Pheromones": 1,
+    "Hfemale": 1,
+    "SkullSmash": 1,
+    "Vegan": 1,
+    "Sfemale3V": 1,
+    "Rfemale": 1
+  },
+  "rare_abilities": [
+    {
+      "ability": "HotBlooded",
+      "count": 1
+    },
+    {
+      "ability": "SelfAssured",
+      "count": 1
+    },
+    {
+      "ability": "BearTrap",
+      "count": 1
+    },
+    {
+      "ability": "Shards",
+      "count": 1
+    },
+    {
+      "ability": "TowerDefense",
+      "count": 1
+    },
+    {
+      "ability": "Warp",
+      "count": 1
+    },
+    {
+      "ability": "IcePaws",
+      "count": 1
+    },
+    {
+      "ability": "StackTheDeck",
+      "count": 1
+    },
+    {
+      "ability": "Berserk",
+      "count": 1
+    },
+    {
+      "ability": "Spur",
+      "count": 1
+    },
+    {
+      "ability": "WideLoad",
+      "count": 1
+    },
+    {
+      "ability": "Magnify",
+      "count": 1
+    },
+    {
+      "ability": "U#.x",
+      "count": 1
+    },
+    {
+      "ability": "MiuT",
+      "count": 1
+    },
+    {
+      "ability": "AssBlast",
+      "count": 1
+    },
+    {
+      "ability": "Hardy",
+      "count": 1
+    },
+    {
+      "ability": "Adoubement",
+      "count": 1
+    },
+    {
+      "ability": "FeatheredCap",
+      "count": 1
+    },
+    {
+      "ability": "BarbedPaw",
+      "count": 1
+    },
+    {
+      "ability": "Burgle",
+      "count": 1
+    },
+    {
+      "ability": "Suppress",
+      "count": 1
+    },
+    {
+      "ability": "BombShot",
+      "count": 1
+    },
+    {
+      "ability": "Bottles",
+      "count": 1
+    },
+    {
+      "ability": "Enema",
+      "count": 1
+    },
+    {
+      "ability": "Zmale",
+      "count": 1
+    },
+    {
+      "ability": "TankSwap",
+      "count": 1
+    },
+    {
+      "ability": "FullForce",
+      "count": 1
+    },
+    {
+      "ability": "BodyGuard",
+      "count": 1
+    },
+    {
+      "ability": "RockCrusher",
+      "count": 1
+    },
+    {
+      "ability": "Wrestlemaniac",
+      "count": 1
+    },
+    {
+      "ability": "FaceShards",
+      "count": 1
+    },
+    {
+      "ability": "MelonBaller",
+      "count": 1
+    },
+    {
+      "ability": "RazorBlade",
+      "count": 1
+    },
+    {
+      "ability": "SeverArtery",
+      "count": 1
+    },
+    {
+      "ability": "SacculinaCarcini",
+      "count": 1
+    },
+    {
+      "ability": "MomsKnife",
+      "count": 1
+    },
+    {
+      "ability": "ElectricCoin",
+      "count": 1
+    },
+    {
+      "ability": "YT&Q",
+      "count": 1
+    },
+    {
+      "ability": "HereticMark",
+      "count": 1
+    },
+    {
+      "ability": "Emergency",
+      "count": 1
+    },
+    {
+      "ability": "Blessed",
+      "count": 1
+    },
+    {
+      "ability": "Jitte",
+      "count": 1
+    },
+    {
+      "ability": "RoidRage",
+      "count": 1
+    },
+    {
+      "ability": "Blackjack",
+      "count": 1
+    },
+    {
+      "ability": "WeirdEgg",
+      "count": 1
+    },
+    {
+      "ability": "Shank",
+      "count": 1
+    },
+    {
+      "ability": "Crucifix",
+      "count": 1
+    },
+    {
+      "ability": "Chainsaw",
+      "count": 1
+    },
+    {
+      "ability": "Q$~S",
+      "count": 1
+    },
+    {
+      "ability": "LastHit",
+      "count": 1
+    },
+    {
+      "ability": "Halo",
+      "count": 1
+    },
+    {
+      "ability": "VisionPlugin",
+      "count": 1
+    },
+    {
+      "ability": "Ankh",
+      "count": 1
+    },
+    {
+      "ability": "Cancer",
+      "count": 1
+    },
+    {
+      "ability": "ButtScoot",
+      "count": 1
+    },
+    {
+      "ability": "Picnic",
+      "count": 1
+    },
+    {
+      "ability": "HighAsYouCanCount",
+      "count": 1
+    },
+    {
+      "ability": "PoisonDip",
+      "count": 1
+    },
+    {
+      "ability": "ArrowSmith",
+      "count": 1
+    },
+    {
+      "ability": "Spotters",
+      "count": 1
+    },
+    {
+      "ability": "Tmale",
+      "count": 1
+    },
+    {
+      "ability": "Revive",
+      "count": 1
+    },
+    {
+      "ability": "BurningPaws",
+      "count": 1
+    },
+    {
+      "ability": "Muzzle",
+      "count": 1
+    },
+    {
+      "ability": "MeekStone",
+      "count": 1
+    },
+    {
+      "ability": "Lighter",
+      "count": 1
+    },
+    {
+      "ability": "LiquidNitrogen",
+      "count": 1
+    },
+    {
+      "ability": "Earthquake",
+      "count": 1
+    },
+    {
+      "ability": "Q?Wo",
+      "count": 1
+    },
+    {
+      "ability": "FocusShot",
+      "count": 1
+    },
+    {
+      "ability": "Tfemale",
+      "count": 1
+    },
+    {
+      "ability": "RockToss",
+      "count": 1
+    },
+    {
+      "ability": "PetRocks",
+      "count": 1
+    },
+    {
+      "ability": "MeteorSlam",
+      "count": 1
+    },
+    {
+      "ability": "Smash",
+      "count": 1
+    },
+    {
+      "ability": "ThickSkull",
+      "count": 1
+    },
+    {
+      "ability": "Bfemale",
+      "count": 1
+    },
+    {
+      "ability": "Blizzard",
+      "count": 1
+    },
+    {
+      "ability": "Resonance",
+      "count": 1
+    },
+    {
+      "ability": "Undeath",
+      "count": 1
+    },
+    {
+      "ability": "FlipFlop",
+      "count": 1
+    },
+    {
+      "ability": "Scabs",
+      "count": 1
+    },
+    {
+      "ability": "Thorns",
+      "count": 1
+    },
+    {
+      "ability": "KingsCrown",
+      "count": 1
+    },
+    {
+      "ability": "Backpack",
+      "count": 1
+    },
+    {
+      "ability": "Host",
+      "count": 1
+    },
+    {
+      "ability": "HolyLight",
+      "count": 1
+    },
+    {
+      "ability": "Awaken",
+      "count": 1
+    },
+    {
+      "ability": "ManaDrain",
+      "count": 1
+    },
+    {
+      "ability": "CoffinFlop",
+      "count": 1
+    },
+    {
+      "ability": "FleshGolem",
+      "count": 1
+    },
+    {
+      "ability": "WormLord",
+      "count": 1
+    },
+    {
+      "ability": "Callus",
+      "count": 1
+    },
+    {
+      "ability": "FetusInAJar",
+      "count": 1
+    },
+    {
+      "ability": "Rebuke",
+      "count": 1
+    },
+    {
+      "ability": "ThrummingSpectacles",
+      "count": 1
+    },
+    {
+      "ability": "Bible",
+      "count": 1
+    },
+    {
+      "ability": "Breakfast",
+      "count": 1
+    },
+    {
+      "ability": "BoG2@`",
+      "count": 1
+    },
+    {
+      "ability": "Counter",
+      "count": 1
+    },
+    {
+      "ability": "LuckSwing",
+      "count": 1
+    },
+    {
+      "ability": "RadarDish",
+      "count": 1
+    },
+    {
+      "ability": "Jazzercise",
+      "count": 1
+    },
+    {
+      "ability": "WindSlash",
+      "count": 1
+    },
+    {
+      "ability": "ElementalAttunement",
+      "count": 1
+    },
+    {
+      "ability": "TrainingBand",
+      "count": 1
+    },
+    {
+      "ability": "Wfemale",
+      "count": 1
+    },
+    {
+      "ability": "LineShot",
+      "count": 1
+    },
+    {
+      "ability": "T_Vg",
+      "count": 1
+    },
+    {
+      "ability": "MaggotArmy",
+      "count": 1
+    },
+    {
+      "ability": "InfiniteRebirth",
+      "count": 1
+    },
+    {
+      "ability": "AAABattery",
+      "count": 1
+    },
+    {
+      "ability": "Leeches",
+      "count": 1
+    },
+    {
+      "ability": "RelentlessDead",
+      "count": 1
+    },
+    {
+      "ability": "Stick",
+      "count": 1
+    },
+    {
+      "ability": "FalconPunch",
+      "count": 1
+    },
+    {
+      "ability": "Rebound",
+      "count": 1
+    },
+    {
+      "ability": "RallyCharge",
+      "count": 1
+    },
+    {
+      "ability": "SoothingGlow",
+      "count": 1
+    },
+    {
+      "ability": "Confront",
+      "count": 1
+    },
+    {
+      "ability": "Vengeful",
+      "count": 1
+    },
+    {
+      "ability": "HumanHand",
+      "count": 1
+    },
+    {
+      "ability": "Z?2c",
+      "count": 1
+    },
+    {
+      "ability": "FurySwipes",
+      "count": 1
+    },
+    {
+      "ability": "ShoulderCheck",
+      "count": 1
+    },
+    {
+      "ability": "SkullClamp",
+      "count": 1
+    },
+    {
+      "ability": "WaterBottle_Full",
+      "count": 1
+    },
+    {
+      "ability": "SpawnPooterFriend",
+      "count": 1
+    },
+    {
+      "ability": "SleepDarts",
+      "count": 1
+    },
+    {
+      "ability": "ThouShaltObey",
+      "count": 1
+    },
+    {
+      "ability": "WasteTime",
+      "count": 1
+    },
+    {
+      "ability": "Cmale",
+      "count": 1
+    },
+    {
+      "ability": "Jmale",
+      "count": 1
+    },
+    {
+      "ability": "WD%Z",
+      "count": 1
+    },
+    {
+      "ability": "MageSwap",
+      "count": 1
+    },
+    {
+      "ability": "WaterBottle_Half",
+      "count": 1
+    },
+    {
+      "ability": "FighterTaunt",
+      "count": 1
+    },
+    {
+      "ability": "SelfDestructButton",
+      "count": 1
+    },
+    {
+      "ability": "ADHD",
+      "count": 1
+    },
+    {
+      "ability": "RangedMedic",
+      "count": 1
+    },
+    {
+      "ability": "Inspire",
+      "count": 1
+    },
+    {
+      "ability": "FireBolt",
+      "count": 1
+    },
+    {
+      "ability": "Reanimate",
+      "count": 1
+    },
+    {
+      "ability": "SentryMode",
+      "count": 1
+    },
+    {
+      "ability": "Infest",
+      "count": 1
+    },
+    {
+      "ability": "Untouched",
+      "count": 1
+    },
+    {
+      "ability": "CircleOfProtection",
+      "count": 1
+    },
+    {
+      "ability": "VeneratedTouch",
+      "count": 1
+    },
+    {
+      "ability": "ThouShaltNotKill",
+      "count": 1
+    },
+    {
+      "ability": "PoisonGas",
+      "count": 1
+    },
+    {
+      "ability": "Agile",
+      "count": 1
+    },
+    {
+      "ability": "SweetSpot",
+      "count": 1
+    },
+    {
+      "ability": "Fukumen",
+      "count": 1
+    },
+    {
+      "ability": "HumanToe",
+      "count": 1
+    },
+    {
+      "ability": "ChosenWarrior",
+      "count": 1
+    },
+    {
+      "ability": "ProtectTheWeak",
+      "count": 1
+    },
+    {
+      "ability": "WeaponMaster",
+      "count": 1
+    },
+    {
+      "ability": "Scars",
+      "count": 1
+    },
+    {
+      "ability": "BloodRain",
+      "count": 1
+    },
+    {
+      "ability": "EternalHealth",
+      "count": 1
+    },
+    {
+      "ability": "BlackCandle",
+      "count": 1
+    },
+    {
+      "ability": "H>SRq",
+      "count": 1
+    },
+    {
+      "ability": "Umale",
+      "count": 1
+    },
+    {
+      "ability": "BountyHunter",
+      "count": 1
+    },
+    {
+      "ability": "CursedRock",
+      "count": 1
+    },
+    {
+      "ability": "AnimateDead",
+      "count": 1
+    },
+    {
+      "ability": "OneWithNothing",
+      "count": 1
+    },
+    {
+      "ability": "Hiss",
+      "count": 1
+    },
+    {
+      "ability": "JJ*z",
+      "count": 1
+    },
+    {
+      "ability": "Landscape",
+      "count": 1
+    },
+    {
+      "ability": "Confusion",
+      "count": 1
+    },
+    {
+      "ability": "ChainKnockback",
+      "count": 1
+    },
+    {
+      "ability": "BrokenWindow",
+      "count": 1
+    },
+    {
+      "ability": "FishHook",
+      "count": 1
+    },
+    {
+      "ability": "Z!djto",
+      "count": 1
+    },
+    {
+      "ability": "Fireball",
+      "count": 1
+    },
+    {
+      "ability": "ForbiddenFlame",
+      "count": 1
+    },
+    {
+      "ability": "PTSD",
+      "count": 1
+    },
+    {
+      "ability": "Bandage",
+      "count": 1
+    },
+    {
+      "ability": "Pierce",
+      "count": 1
+    },
+    {
+      "ability": "Critical",
+      "count": 1
+    },
+    {
+      "ability": "JH,m",
+      "count": 1
+    },
+    {
+      "ability": "FindARock",
+      "count": 1
+    },
+    {
+      "ability": "Omale340m",
+      "count": 1
+    },
+    {
+      "ability": "CupidsArrow",
+      "count": 1
+    },
+    {
+      "ability": "MangyWig",
+      "count": 1
+    },
+    {
+      "ability": "EnergyTransmitter",
+      "count": 1
+    },
+    {
+      "ability": "PoundOfFlesh_Cursed",
+      "count": 1
+    },
+    {
+      "ability": "Step",
+      "count": 1
+    },
+    {
+      "ability": "LightningPaws",
+      "count": 1
+    },
+    {
+      "ability": "HealingGauze",
+      "count": 1
+    },
+    {
+      "ability": "Book",
+      "count": 1
+    },
+    {
+      "ability": "Q?ZI",
+      "count": 1
+    },
+    {
+      "ability": "FirePunch",
+      "count": 1
+    },
+    {
+      "ability": "Huddle",
+      "count": 1
+    },
+    {
+      "ability": "Boned",
+      "count": 1
+    },
+    {
+      "ability": "MeleeHeal",
+      "count": 1
+    },
+    {
+      "ability": "WhipCracker",
+      "count": 1
+    },
+    {
+      "ability": "Mania",
+      "count": 1
+    },
+    {
+      "ability": "PrepareToJump",
+      "count": 1
+    },
+    {
+      "ability": "Rockin",
+      "count": 1
+    },
+    {
+      "ability": "Protection",
+      "count": 1
+    },
+    {
+      "ability": "PokeWound",
+      "count": 1
+    },
+    {
+      "ability": "Trip",
+      "count": 1
+    },
+    {
+      "ability": "WeakSpot",
+      "count": 1
+    },
+    {
+      "ability": "HorseBlinders",
+      "count": 1
+    },
+    {
+      "ability": "BallOfBandages",
+      "count": 1
+    },
+    {
+      "ability": "TrashCanLid",
+      "count": 1
+    },
+    {
+      "ability": "EuhaplorchisCaliforniensis",
+      "count": 1
+    },
+    {
+      "ability": "Flower",
+      "count": 1
+    },
+    {
+      "ability": "MegaPoop",
+      "count": 1
+    },
+    {
+      "ability": "Percs",
+      "count": 1
+    },
+    {
+      "ability": "BloodGeyser",
+      "count": 1
+    },
+    {
+      "ability": "Feed",
+      "count": 1
+    },
+    {
+      "ability": "Whisper",
+      "count": 1
+    },
+    {
+      "ability": "Superstition",
+      "count": 1
+    },
+    {
+      "ability": "Infiltrate",
+      "count": 1
+    },
+    {
+      "ability": "HallowedGround",
+      "count": 1
+    },
+    {
+      "ability": "PinsAndNeedles",
+      "count": 1
+    },
+    {
+      "ability": "CinderBlock",
+      "count": 1
+    },
+    {
+      "ability": "Wafer",
+      "count": 1
+    },
+    {
+      "ability": "Omale113i",
+      "count": 1
+    },
+    {
+      "ability": "CutPurse",
+      "count": 1
+    },
+    {
+      "ability": "FocusBand",
+      "count": 1
+    },
+    {
+      "ability": "PersuasionDevice_Fixed",
+      "count": 1
+    },
+    {
+      "ability": "SuperCrateBox",
+      "count": 1
+    },
+    {
+      "ability": "Mange",
+      "count": 1
+    },
+    {
+      "ability": "Bandages",
+      "count": 1
+    },
+    {
+      "ability": "BrickNecklace",
+      "count": 1
+    },
+    {
+      "ability": "MeStone",
+      "count": 1
+    },
+    {
+      "ability": "Turkey",
+      "count": 1
+    },
+    {
+      "ability": "PawShards",
+      "count": 1
+    },
+    {
+      "ability": "Caltrops",
+      "count": 1
+    },
+    {
+      "ability": "SwiftKiller",
+      "count": 1
+    },
+    {
+      "ability": "Helmet",
+      "count": 1
+    },
+    {
+      "ability": "Chicken",
+      "count": 1
+    },
+    {
+      "ability": "Ofemale36p",
+      "count": 1
+    },
+    {
+      "ability": "Pheromones",
+      "count": 1
+    },
+    {
+      "ability": "Hfemale",
+      "count": 1
+    },
+    {
+      "ability": "SkullSmash",
+      "count": 1
+    },
+    {
+      "ability": "Vegan",
+      "count": 1
+    },
+    {
+      "ability": "Sfemale3V",
+      "count": 1
+    },
+    {
+      "ability": "Rfemale",
+      "count": 1
+    },
+    {
+      "ability": "Roll",
+      "count": 2
+    },
+    {
+      "ability": "Sunburn",
+      "count": 2
+    },
+    {
+      "ability": "LookAtMe",
+      "count": 2
+    },
+    {
+      "ability": "Inferno",
+      "count": 2
+    },
+    {
+      "ability": "Overload",
+      "count": 2
+    },
+    {
+      "ability": "ReflexPunch",
+      "count": 2
+    },
+    {
+      "ability": "Rest",
+      "count": 2
+    },
+    {
+      "ability": "Crusade",
+      "count": 2
+    },
+    {
+      "ability": "BreathOfLife",
+      "count": 2
+    },
+    {
+      "ability": "CatRib",
+      "count": 2
+    },
+    {
+      "ability": "SteelSkin",
+      "count": 2
+    },
+    {
+      "ability": "Bolt",
+      "count": 2
+    },
+    {
+      "ability": "LearnFromMe",
+      "count": 2
+    },
+    {
+      "ability": "Stoic",
+      "count": 2
+    },
+    {
+      "ability": "Pray",
+      "count": 2
+    },
+    {
+      "ability": "Cleanse",
+      "count": 2
+    },
+    {
+      "ability": "BlessingOfSpirit",
+      "count": 2
+    },
+    {
+      "ability": "Cheat",
+      "count": 2
+    },
+    {
+      "ability": "Cripple",
+      "count": 2
+    },
+    {
+      "ability": "Amale",
+      "count": 2
+    },
+    {
+      "ability": "TerrainWalk",
+      "count": 2
+    },
+    {
+      "ability": "TalkToAnimals",
+      "count": 2
+    },
+    {
+      "ability": "AlmsForThePoor",
+      "count": 2
+    },
+    {
+      "ability": "LickHeal",
+      "count": 2
+    },
+    {
+      "ability": "ProtectiveAura",
+      "count": 2
+    },
+    {
+      "ability": "ToadStyle",
+      "count": 2
+    },
+    {
+      "ability": "HardHead",
+      "count": 2
+    },
+    {
+      "ability": "ToTheRescue",
+      "count": 2
+    },
+    {
+      "ability": "MiniDistract",
+      "count": 2
+    },
+    {
+      "ability": "Assassinate",
+      "count": 2
+    },
+    {
+      "ability": "Pinpoint",
+      "count": 2
+    },
+    {
+      "ability": "PropellerCap",
+      "count": 2
+    },
+    {
+      "ability": "Ponder",
+      "count": 2
+    },
+    {
+      "ability": "BrambleShot",
+      "count": 2
+    },
+    {
+      "ability": "CatchProjectiles",
+      "count": 2
+    },
+    {
+      "ability": "Brace",
+      "count": 2
+    },
+    {
+      "ability": "ReverseDamage",
+      "count": 2
+    },
+    {
+      "ability": "Caretaker",
+      "count": 2
+    },
+    {
+      "ability": "TakeAim",
+      "count": 2
+    },
+    {
+      "ability": "SideSlash",
+      "count": 2
+    },
+    {
+      "ability": "ThinkTooHard",
+      "count": 2
+    },
+    {
+      "ability": "RatStyle",
+      "count": 2
+    },
+    {
+      "ability": "SlipThrough",
+      "count": 2
+    },
+    {
+      "ability": "PoisonNail",
+      "count": 2
+    },
+    {
+      "ability": "Smack",
+      "count": 2
+    },
+    {
+      "ability": "Till",
+      "count": 2
+    },
+    {
+      "ability": "Contort",
+      "count": 2
+    },
+    {
+      "ability": "MyLeg",
+      "count": 2
+    },
+    {
+      "ability": "Prayer",
+      "count": 2
+    },
+    {
+      "ability": "HolyMantel",
+      "count": 2
+    },
+    {
+      "ability": "BarbedWire",
+      "count": 2
+    },
+    {
+      "ability": "SlackOff",
+      "count": 2
+    },
+    {
+      "ability": "SpiderEgg",
+      "count": 2
+    },
+    {
+      "ability": "PlayDead",
+      "count": 2
+    },
+    {
+      "ability": "Exert",
+      "count": 2
+    },
+    {
+      "ability": "FullMoon",
+      "count": 2
+    },
+    {
+      "ability": "Rebirth",
+      "count": 2
+    },
+    {
+      "ability": "LastGasp",
+      "count": 2
+    },
+    {
+      "ability": "ScatterShot",
+      "count": 2
+    },
+    {
+      "ability": "Jfemale",
+      "count": 2
+    },
+    {
+      "ability": "Booster",
+      "count": 2
+    },
+    {
+      "ability": "Eternal",
+      "count": 2
+    },
+    {
+      "ability": "HealingAura",
+      "count": 2
+    },
+    {
+      "ability": "TatteredScrap",
+      "count": 2
+    },
+    {
+      "ability": "Traps",
+      "count": 2
+    },
+    {
+      "ability": "FecalHood",
+      "count": 2
+    },
+    {
+      "ability": "RollOfPennies",
+      "count": 2
+    },
+    {
+      "ability": "Meow",
+      "count": 2
+    },
+    {
+      "ability": "HeavyShot",
+      "count": 2
+    },
+    {
+      "ability": "ThornArrows",
+      "count": 2
+    },
+    {
+      "ability": "Smale",
+      "count": 2
+    },
+    {
+      "ability": "WetHairball",
+      "count": 2
+    },
+    {
+      "ability": "FrankBolts",
+      "count": 2
+    },
+    {
+      "ability": "Rouse",
+      "count": 2
+    },
+    {
+      "ability": "BornAgain",
+      "count": 2
+    },
+    {
+      "ability": "SoulReap",
+      "count": 2
+    },
+    {
+      "ability": "Shift",
+      "count": 2
+    },
+    {
+      "ability": "Surf",
+      "count": 2
+    },
+    {
+      "ability": "Hmale",
+      "count": 2
+    },
+    {
+      "ability": "Infestation",
+      "count": 2
+    },
+    {
+      "ability": "Absorb",
+      "count": 2
+    },
+    {
+      "ability": "BoostSpellRange",
+      "count": 2
+    },
+    {
+      "ability": "LootHoarder",
+      "count": 2
+    },
+    {
+      "ability": "Block",
+      "count": 2
+    },
+    {
+      "ability": "CarrionShot",
+      "count": 2
+    },
+    {
+      "ability": "PushMove",
+      "count": 2
+    },
+    {
+      "ability": "HealBolt",
+      "count": 2
+    },
+    {
+      "ability": "Reduce",
+      "count": 2
+    },
+    {
+      "ability": "BurgeoningBarrier",
+      "count": 2
+    },
+    {
+      "ability": "Omale",
+      "count": 2
+    },
+    {
+      "ability": "PutridLeech",
+      "count": 2
+    },
+    {
+      "ability": "CatNap",
+      "count": 2
+    },
+    {
+      "ability": "Heathens",
+      "count": 2
+    },
+    {
+      "ability": "Copycat",
+      "count": 2
+    },
+    {
+      "ability": "BurgeoningBlast",
+      "count": 2
+    },
+    {
+      "ability": "SavantSyndrome",
+      "count": 2
+    },
+    {
+      "ability": "BagOfChum",
+      "count": 2
+    },
+    {
+      "ability": "Leechmother",
+      "count": 2
+    },
+    {
+      "ability": "ColdShoulder",
+      "count": 3
+    },
+    {
+      "ability": "HawkEye",
+      "count": 3
+    },
+    {
+      "ability": "BurgeoningBattery",
+      "count": 3
+    },
+    {
+      "ability": "TopOff",
+      "count": 3
+    },
+    {
+      "ability": "SpawnBaitTrap",
+      "count": 3
+    },
+    {
+      "ability": "Fleabag",
+      "count": 3
+    },
+    {
+      "ability": "Reflect",
+      "count": 3
+    },
+    {
+      "ability": "OpenWounds",
+      "count": 3
+    },
+    {
+      "ability": "BareMinimum",
+      "count": 3
+    },
+    {
+      "ability": "Snacks",
+      "count": 3
+    },
+    {
+      "ability": "SubwayRide",
+      "count": 3
+    },
+    {
+      "ability": "PoisonLace",
+      "count": 3
+    },
+    {
+      "ability": "Quiver",
+      "count": 3
+    },
+    {
+      "ability": "HoseOff",
+      "count": 3
+    },
+    {
+      "ability": "Brainstorm",
+      "count": 3
+    },
+    {
+      "ability": "Toss",
+      "count": 3
+    },
+    {
+      "ability": "MamaLeech",
+      "count": 3
+    },
+    {
+      "ability": "SpawnTomTomFriend",
+      "count": 3
+    },
+    {
+      "ability": "ForbiddenFart",
+      "count": 3
+    },
+    {
+      "ability": "LotteryShottery",
+      "count": 3
+    },
+    {
+      "ability": "BloodFrenzy",
+      "count": 3
+    },
+    {
+      "ability": "Marked",
+      "count": 3
+    },
+    {
+      "ability": "FighterLeap",
+      "count": 3
+    },
+    {
+      "ability": "MageTeleport",
+      "count": 3
+    },
+    {
+      "ability": "Recharged",
+      "count": 3
+    },
+    {
+      "ability": "MiniHook",
+      "count": 3
+    },
+    {
+      "ability": "BlessingOfHolyFire",
+      "count": 3
+    },
+    {
+      "ability": "RangedHeal",
+      "count": 3
+    },
+    {
+      "ability": "SoulLink",
+      "count": 3
+    },
+    {
+      "ability": "Reach",
+      "count": 3
+    },
+    {
+      "ability": "PissYourself",
+      "count": 3
+    },
+    {
+      "ability": "Rally",
+      "count": 3
+    }
+  ],
+  "compatible_pairs": [
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 39.5,
+      "reasons": [
+        "Good expected: avg 5.57 (total 39.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, LUCK, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD"
+      ],
+      "stat7_count": 3,
+      "expected_total": 39.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 161,
+      "male_name": "Taro ♲",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 39.3,
+      "reasons": [
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "Hybrid: Medic × Colorless"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 199,
+      "male_name": "Hopper ♲",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 39.3,
+      "reasons": [
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, SPD, STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "CHA",
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 39.2,
+      "reasons": [
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, SPD, STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 39.1,
+      "reasons": [
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 39.1,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 39.0,
+      "reasons": [
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, LUCK, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 39.0,
+      "reasons": [
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, SPD, STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 199,
+      "male_name": "Hopper ♲",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 38.9,
+      "reasons": [
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, SPD, STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "INT",
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 38.8,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 199,
+      "male_name": "Hopper ♲",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 38.7,
+      "reasons": [
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, SPD, STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "CHA",
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 38.6,
+      "reasons": [
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK, SPD"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "INT",
+        "LUCK",
+        "SPD"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "CHA"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 38.5,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 38.3,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR",
+        "Hybrid: Fighter × Medic"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 161,
+      "male_name": "Taro ♲",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 38.3,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK",
+        "Hybrid: Medic × Colorless"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "INT",
+        "LUCK"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 214,
+      "male_name": "Mudcup ♲",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 38.3,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 38.2,
+      "reasons": [
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 38.2,
+      "reasons": [
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: SPD, STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 38.2,
+      "reasons": [
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK, STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "INT",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 3,
+      "expected_total": 37.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 214,
+      "male_name": "Mudcup ♲",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 38.2,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 38.1,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT",
+        "Hybrid: Colorless × Medic"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "INT"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 199,
+      "male_name": "Hopper ♲",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 38.0,
+      "reasons": [
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: LUCK, SPD"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "LUCK",
+        "SPD"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "INT",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 37.9,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 37.9,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: LUCK, STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 37.8,
+      "reasons": [
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: LUCK, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 37.8,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 37.8,
+      "reasons": [
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: SPD"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "SPD"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "INT",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 37.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 37.8,
+      "reasons": [
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 37.7,
+      "reasons": [
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 37.6,
+      "reasons": [
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: SPD, STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 214,
+      "male_name": "Mudcup ♲",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 37.6,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: LUCK, STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 37.4,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 37.0,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 37.3,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "INT",
+        "LUCK"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 37.3,
+      "reasons": [
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, LUCK"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "INT",
+        "SPD"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 199,
+      "female_name": "Hopper ♲",
+      "score": 37.3,
+      "reasons": [
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, SPD"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "SPD"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "INT",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 214,
+      "male_name": "Mudcup ♲",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 37.2,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 36.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 37.1,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.19 (total 36.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 36.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 37.1,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 36.7,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 216,
+      "male_name": "Elfo",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 37.1,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.19 (total 36.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR",
+        "Hybrid: Fighter × Colorless"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 36.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 223,
+      "female_name": "Mahina",
+      "score": 36.8,
+      "reasons": [
+        "Good expected: avg 5.19 (total 36.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: LUCK"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "LUCK"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 1,
+      "expected_total": 36.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 219,
+      "male_name": "Frank",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 36.7,
+      "reasons": [
+        "Good expected: avg 5.19 (total 36.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 36.3,
+      "kinship_penalty": 0
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 29.8,
+      "reasons": [
+        "Good expected: avg 5.62 (total 39.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, LUCK, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #161) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD"
+      ],
+      "stat7_count": 4,
+      "expected_total": 39.3,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 29.6,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.57 (total 39.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #192) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 39.0,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 29.4,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.57 (total 39.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #161) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 39.0,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 28.7,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #161) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.3,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 28.5,
+      "reasons": [
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #161) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "INT",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.0,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 28.3,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #161) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 28.2,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #192) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 27.5,
+      "reasons": [
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 AUNT/UNCLE-NEPHEW/NIECE (shared ancestor #161) (-10)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.0,
+      "kinship_penalty": -10
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 25.3,
+      "reasons": [
+        "Good expected: avg 5.57 (total 39.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "Hybrid: Colorless × Medic",
+        "🚫 GRANDPARENT-GRANDCHILD (-15)"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 39.0,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 161,
+      "male_name": "Taro ♲",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 24.9,
+      "reasons": [
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "Hybrid: Medic × Colorless",
+        "🚫 GRANDPARENT-GRANDCHILD (-15)"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.7,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 24.0,
+      "reasons": [
+        "2 stat(s) guaranteed at 7",
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 GRANDPARENT-GRANDCHILD (-15)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.3,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 23.9,
+      "reasons": [
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, LUCK, STR",
+        "🚫 HALF-SIBLINGS (shared parent #118) (-15)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD"
+      ],
+      "stat7_count": 4,
+      "expected_total": 38.3,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 161,
+      "male_name": "Taro ♲",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 23.9,
+      "reasons": [
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR",
+        "Hybrid: Medic × Colorless",
+        "🚫 GRANDPARENT-GRANDCHILD (-15)"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.7,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 23.4,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR",
+        "🚫 HALF-SIBLINGS (shared parent #161) (-15)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.0,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 23.2,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.38 (total 37.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK, STR",
+        "🚫 HALF-SIBLINGS (shared parent #161) (-15)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "INT",
+        "LUCK",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 3,
+      "expected_total": 37.7,
+      "kinship_penalty": -15
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 19.9,
+      "reasons": [
+        "2 stat(s) guaranteed at 7",
+        "Good expected: avg 5.62 (total 39.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 FULL SIBLINGS (-20)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 39.3,
+      "kinship_penalty": -20
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 19.4,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.57 (total 39.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "🚫 FULL SIBLINGS (-20)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 39.0,
+      "kinship_penalty": -20
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 17.8,
+      "reasons": [
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "🚫 FULL SIBLINGS (-20)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 37.3,
+      "kinship_penalty": -20
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 14.8,
+      "reasons": [
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT, STR",
+        "Hybrid: Colorless × Medic",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 3,
+      "expected_total": 38.7,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 14.4,
+      "reasons": [
+        "2 stat(s) guaranteed at 7",
+        "Good expected: avg 5.57 (total 39.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 39.0,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 214,
+      "male_name": "Mudcup ♲",
+      "female_id": 222,
+      "female_name": "Frosya",
+      "score": 14.2,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.52 (total 38.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.7,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 14.1,
+      "reasons": [
+        "Good expected: avg 5.43 (total 38.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR",
+        "Hybrid: Colorless × Medic",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.0,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 205,
+      "male_name": "Pugsly",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 13.8,
+      "reasons": [
+        "2 stat(s) guaranteed at 7",
+        "Good expected: avg 5.48 (total 38.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 38.3,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 161,
+      "male_name": "Taro ♲",
+      "female_id": 221,
+      "female_name": "Lilly Pin",
+      "score": 13.5,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, STR",
+        "Hybrid: Medic × Colorless",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "INT",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.3,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 183,
+      "male_name": "Clinton",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 12.9,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: INT, LUCK",
+        "Hybrid: Colorless × Medic",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "INT",
+        "LUCK"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "SPD",
+        "CHA"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 218,
+      "male_name": "Keenan",
+      "female_id": 214,
+      "female_name": "Mudcup ♲",
+      "score": 12.9,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.33 (total 37.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 37.3,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 161,
+      "female_name": "Taro ♲",
+      "score": 12.6,
+      "reasons": [
+        "Good expected: avg 5.19 (total 36.3/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, INT",
+        "Hybrid: Colorless × Medic",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/D",
+      "stat7_covered": [
+        "CHA",
+        "INT"
+      ],
+      "stat7_missing": [
+        "STR",
+        "DEX",
+        "CON",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.3,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 189,
+      "male_name": "Kaze",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 12.4,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.29 (total 37.0/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 1,
+      "expected_total": 37.0,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 207,
+      "male_name": "Booticus Maximus",
+      "female_id": 192,
+      "female_name": "Pipistrella",
+      "score": 12.3,
+      "reasons": [
+        "1 stat(s) guaranteed at 7",
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: CHA, STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "M/F",
+      "stat7_covered": [
+        "CHA",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "SPD",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": -25
+    },
+    {
+      "male_id": 199,
+      "male_name": "Hopper ♲",
+      "female_id": 220,
+      "female_name": "Sushka",
+      "score": 12.3,
+      "reasons": [
+        "Good expected: avg 5.24 (total 36.7/49) at 100 Stim",
+        "67% chance per stat to inherit higher (100 Stim)",
+        "Parent 7s: SPD, STR",
+        "🚫 PARENT-CHILD (-25)"
+      ],
+      "type": "D/F",
+      "stat7_covered": [
+        "SPD",
+        "STR"
+      ],
+      "stat7_missing": [
+        "DEX",
+        "CON",
+        "INT",
+        "CHA",
+        "LUCK"
+      ],
+      "stat7_count": 2,
+      "expected_total": 36.7,
+      "kinship_penalty": -25
+    }
+  ],
+  "stat7_summary": [
+    {
+      "id": 21,
+      "name": "Stella Ru",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CON",
+        "CHA"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 97,
+      "name": "Lyney",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "SPD",
+        "CHA"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 101,
+      "name": "Riddles",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "SPD",
+        "CHA"
+      ],
+      "stat_total": 42,
+      "is_active": false
+    },
+    {
+      "id": 102,
+      "name": "Garong",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 106,
+      "name": "Space Kot",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 113,
+      "name": "Felicidad",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 118,
+      "name": "Ikura",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 121,
+      "name": "McNary",
+      "gender": "Ditto",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 124,
+      "name": "Fro",
+      "gender": "Ditto",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 126,
+      "name": "Artyom",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 128,
+      "name": "Komarov",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 132,
+      "name": "Dolce Vita",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 133,
+      "name": "Bacchus",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 134,
+      "name": "Melek",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 42,
+      "is_active": false
+    },
+    {
+      "id": 138,
+      "name": "Della",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 139,
+      "name": "Benrey",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 144,
+      "name": "Pusha",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 146,
+      "name": "Earnest",
+      "gender": "Male",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 40,
+      "is_active": false
+    },
+    {
+      "id": 147,
+      "name": "Conshy",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    },
+    {
+      "id": 148,
+      "name": "Conditioner",
+      "gender": "Female",
+      "stat7_count": 2,
+      "stat7_list": [
+        "CHA",
+        "LUCK"
+      ],
+      "stat_total": 41,
+      "is_active": false
+    }
+  ]
+}
