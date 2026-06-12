@@ -1,6 +1,12 @@
 # Mewgenics Breeding Tool
 
-[![Download Latest Release](https://img.shields.io/github/v/release/gabrielocker/mewgenics_breed?label=Download&color=brightgreen&include_prereleases)](https://github.com/gabrielocker/mewgenics_breed/releases/latest)
+<p align="center">
+  <a href="https://github.com/gabrielocker/mewgenics_breed/releases/download/alpha/MewgenicsBreeding.exe">
+    <img src="https://img.shields.io/badge/⬇%20Baixar%20MewgenicsBreeding.exe%20⬇-008000?style=for-the-badge&logo=windows&logoColor=white" alt="Download">
+  </a>
+  <br>
+  <sub>~15 MB • Windows 10/11 • WebView2 incluso no sistema</sub>
+</p>
 
 Desktop app for analyzing cat genetics and breeding pairs from *Mewgenics* save files. Extracts cat data directly from `.sav` file, reconstructs family trees from the pedigree table, and scores all viable breeding pairs using the game's current stats.
 
